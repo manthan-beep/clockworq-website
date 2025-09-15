@@ -34,7 +34,7 @@ export function TimeSection() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-5xl md:text-7xl font-extrabold leading-tight mb-8"
           >
-            Don't Let Time{" "}
+            Don&apos;t Let Time{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">
               Run Out
             </span>

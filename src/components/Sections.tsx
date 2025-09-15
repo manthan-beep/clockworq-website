@@ -612,7 +612,7 @@ export function Pricing() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl text-slate-700 max-w-3xl mx-auto leading-relaxed"
           >
             Start free, scale as you grow. No hidden fees, cancel anytime.
           </motion.p>
@@ -692,8 +692,8 @@ export function Pricing() {
         </div>
 
         {/* Pricing Metrics */}
-        <div className="bg-white/5 backdrop-blur rounded-2xl p-8 shadow-xl border border-white/20 mb-8">
-          <h3 className="text-2xl font-bold text-center text-white mb-8">
+        <div className="bg-white rounded-2xl p-8 shadow-xl border border-slate-200 mb-8">
+          <h3 className="text-2xl font-bold text-center text-slate-900 mb-8">
             Proven Results
           </h3>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
@@ -706,10 +706,10 @@ export function Pricing() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="text-center"
               >
-                <div className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-2">
+                <div className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-slate-700 mb-2">
                   <CountUp end={metric.value} duration={2.5} suffix={metric.suffix} enableScrollSpy />
                 </div>
-                <p className="text-gray-300 font-medium text-sm">{metric.label}</p>
+                <p className="text-slate-700 font-medium text-sm">{metric.label}</p>
               </motion.div>
             ))}
           </div>
@@ -717,9 +717,9 @@ export function Pricing() {
 
         {/* Add-ons and CTA */}
         <div className="text-center">
-          <div className="bg-white/5 rounded-2xl p-8 mb-8 border border-white/10">
-            <h4 className="text-xl font-semibold text-white mb-4">Add-ons & Services</h4>
-            <div className="grid md:grid-cols-3 gap-6 text-sm text-gray-300">
+          <div className="bg-white rounded-2xl p-8 mb-8 border border-slate-200">
+            <h4 className="text-xl font-semibold text-slate-900 mb-4">Add-ons & Services</h4>
+            <div className="grid md:grid-cols-3 gap-6 text-sm text-slate-700">
               <div>
                 <strong>Extra tokens:</strong> $50 per 250k tokens
               </div>
@@ -734,7 +734,7 @@ export function Pricing() {
           
           <a 
             href="#cta" 
-            className="inline-flex items-center gap-3 rounded-2xl px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold text-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center gap-3 rounded-2xl px-8 py-4 bg-slate-900 text-white font-semibold text-lg hover:bg-slate-800 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             Start My Automation Journey
             <span className="text-xl">→</span>

@@ -116,7 +116,7 @@ export default function StackingSection({ children, className = "", id, isFirst 
     <section 
       ref={sectionRef} 
       id={id}
-      className={`stacking-section ${className}`}
+      className={`stacking-section scroll-mt-24 ${className}`}
     >
       {children}
     </section>

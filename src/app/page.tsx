@@ -25,9 +25,9 @@ export default function Home() {
       <StackingSection id="pricing">
         <Pricing />
       </StackingSection>
-      <StackingSection id="testimonials">
+      {/* <StackingSection id="testimonials">
         <SocialProof />
-      </StackingSection>
+      </StackingSection> */}
       <StackingSection id="cta">
         <FinalCTA />
       </StackingSection>

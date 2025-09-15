@@ -83,39 +83,39 @@ export function Why() {
       icon: "⚡", 
       title: "Always On", 
       desc: "AI agents run 24/7 with precision.",
-      color: "from-blue-500 to-cyan-500"
+      color: "from-slate-400 to-slate-500"
     },
     { 
       icon: "🔗", 
       title: "Seamless Integration", 
       desc: "Works with n8n, CRMs, ERPs, APIs.",
-      color: "from-purple-500 to-pink-500"
+      color: "from-slate-500 to-slate-600"
     },
     { 
       icon: "📈", 
       title: "Scale with Ease", 
       desc: "From startups to enterprises.",
-      color: "from-green-500 to-emerald-500"
+      color: "from-slate-600 to-slate-700"
     },
     { 
       icon: "🎯", 
       title: "Human-Centered", 
       desc: "We remove grunt work so your people can innovate.",
-      color: "from-orange-500 to-red-500"
+      color: "from-slate-700 to-slate-800"
     },
   ];
   
   return (
-    <section className="relative overflow-hidden py-24 min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800">
+    <section className="relative overflow-hidden py-16 min-h-screen bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400">
       {/* Background image with dark overlay */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div
           className="absolute inset-0 bg-center bg-cover bg-fixed opacity-20"
           style={{ backgroundImage: "url('/images/why.png')" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/70 to-gray-900/60" />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-200/80 via-slate-300/70 to-slate-400/60" />
       </div>
-      <div className="mx-auto max-w-7xl px-4">
+      <div className="mx-auto max-w-7xl px-6 py-8">
         {/* Hero Text */}
         <div className="text-center mb-14">
           <motion.div
@@ -124,17 +124,17 @@ export function Why() {
             viewport={{ once: true }}
             className="mb-8"
           >
-            <span className="inline-block px-4 py-2 bg-blue-500/20 text-blue-300 rounded-full text-sm font-medium mb-6 border border-blue-500/30">
+            <span className="inline-block px-4 py-2 bg-slate-600/20 text-slate-700 rounded-full text-sm font-medium mb-6 border border-slate-600/30">
               Why Clockworq.ai?
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-4 leading-tight">
               Because your time should drive{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 via-slate-700 to-slate-600">
                 results
               </span>
               , not busywork.
             </h2>
-            <p className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-slate-700 max-w-4xl mx-auto leading-relaxed">
               Let agents handle repetition so you can focus on decisions.
             </p>
           </motion.div>
@@ -148,15 +148,15 @@ export function Why() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6 }}
-            className="bg-white/10 backdrop-blur rounded-3xl p-8 border border-white/20 shadow-sm"
+            className="bg-white rounded-3xl p-8 border border-slate-200 shadow-md"
           >
-            <h3 className="text-xl md:text-2xl font-bold text-white">AI Agents that ship outcomes</h3>
-            <p className="mt-2 text-gray-300 text-sm md:text-base">Clockworq agents orchestrate tools, APIs and data to deliver measurable business results.</p>
-            <ul className="mt-4 space-y-2 text-gray-200 text-sm md:text-base">
-              <li className="flex gap-3"><span className="text-[var(--brand)]">✓</span> Marketing reports, lead scoring, client dashboards</li>
-              <li className="flex gap-3"><span className="text-[var(--brand)]">✓</span> HR + ops workflows, document processing, approvals</li>
-              <li className="flex gap-3"><span className="text-[var(--brand)]">✓</span> Support bots, feedback analysis, DevOps automations</li>
-              <li className="flex gap-3"><span className="text-[var(--brand)]">✓</span> Hybrid model routing to optimize speed and cost</li>
+            <h3 className="text-xl md:text-2xl font-bold text-slate-900">AI Agents that ship outcomes</h3>
+            <p className="mt-2 text-slate-700 text-sm md:text-base">Clockworq agents orchestrate tools, APIs and data to deliver measurable business results.</p>
+            <ul className="mt-4 space-y-2 text-slate-700 text-sm md:text-base">
+              <li className="flex gap-3"><span className="text-slate-600">✓</span> Marketing reports, lead scoring, client dashboards</li>
+              <li className="flex gap-3"><span className="text-slate-600">✓</span> HR + ops workflows, document processing, approvals</li>
+              <li className="flex gap-3"><span className="text-slate-600">✓</span> Support bots, feedback analysis, DevOps automations</li>
+              <li className="flex gap-3"><span className="text-slate-600">✓</span> Hybrid model routing to optimize speed and cost</li>
             </ul>
           </motion.div>
 
@@ -166,10 +166,10 @@ export function Why() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="bg-white/10 backdrop-blur rounded-3xl p-8 border border-white/20 shadow-sm"
+            className="bg-white rounded-3xl p-8 border border-slate-200 shadow-md"
           >
-            <h3 className="text-xl md:text-2xl font-bold text-white">Built on n8n — connect anything</h3>
-            <p className="mt-2 text-gray-300 text-sm md:text-base">Native n8n pipelines let our agents plug into your existing stack in minutes.</p>
+            <h3 className="text-xl md:text-2xl font-bold text-slate-900">Built on n8n — connect anything</h3>
+            <p className="mt-2 text-slate-700 text-sm md:text-base">Native n8n pipelines let our agents plug into your existing stack in minutes.</p>
             <div className="mt-6 grid sm:grid-cols-2 gap-4">
               {[
                 'Slack • Gmail • HubSpot • Notion',
@@ -177,10 +177,10 @@ export function Why() {
                 'PostgreSQL • MySQL • BigQuery',
                 'Webhooks • REST • GraphQL APIs',
               ].map((item) => (
-                <div key={item} className="rounded-xl border border-white/20 bg-white/5 p-4 text-sm text-gray-200">{item}</div>
+                <div key={item} className="rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-700">{item}</div>
               ))}
             </div>
-            <p className="mt-4 text-sm text-gray-400">Bring your own keys. Secure by design. Versioned flows.</p>
+            <p className="mt-4 text-sm text-slate-600">Bring your own keys. Secure by design. Versioned flows.</p>
           </motion.div>
         </div>
 
@@ -196,9 +196,9 @@ export function Why() {
               className="group relative"
             >
               {/* Card */}
-              <div className="relative bg-white/10 backdrop-blur rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-white/20 group-hover:border-white/30">
+              <div className="relative bg-white/20 backdrop-blur rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-300/30 group-hover:border-slate-400/40">
                 {/* Gradient Background Effect */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${f.color} opacity-0 group-hover:opacity-5 rounded-3xl transition-opacity duration-500`} />
+                <div className={`absolute inset-0 bg-gradient-to-br ${f.color} opacity-0 group-hover:opacity-10 rounded-3xl transition-opacity duration-500`} />
                 
                 {/* Icon */}
                 <div className="relative mb-5">
@@ -209,10 +209,10 @@ export function Why() {
                 
                 {/* Content */}
                 <div className="relative text-center">
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-gray-100 transition-colors">
+                  <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-slate-800 transition-colors">
                     {f.title}
                   </h3>
-                  <p className="text-gray-300 leading-relaxed text-base">
+                  <p className="text-slate-700 leading-relaxed text-base">
                     {f.desc}
                   </p>
                 </div>
@@ -226,21 +226,21 @@ export function Why() {
 
         {/* Metrics */}
         <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="text-center bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/20">
-            <div className="text-3xl md:text-4xl font-extrabold text-white"><CountUp end={250} duration={1.2} />+</div>
-            <p className="mt-2 text-gray-300">Workflows automated</p>
+          <div className="text-center bg-white/20 backdrop-blur rounded-2xl p-6 border border-slate-300/30">
+            <div className="text-3xl md:text-4xl font-extrabold text-slate-900"><CountUp end={250} duration={1.2} />+</div>
+            <p className="mt-2 text-slate-700">Workflows automated</p>
           </div>
-          <div className="text-center bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/20">
-            <div className="text-3xl md:text-4xl font-extrabold text-white"><CountUp end={70} duration={1.2} />%</div>
-            <p className="mt-2 text-gray-300">Avg. time saved per team</p>
+          <div className="text-center bg-white/20 backdrop-blur rounded-2xl p-6 border border-slate-300/30">
+            <div className="text-3xl md:text-4xl font-extrabold text-slate-900"><CountUp end={70} duration={1.2} />%</div>
+            <p className="mt-2 text-slate-700">Avg. time saved per team</p>
           </div>
-          <div className="text-center bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/20">
-            <div className="text-3xl md:text-4xl font-extrabold text-white"><CountUp end={120} duration={1.2} />+</div>
-            <p className="mt-2 text-gray-300">Connectors & integrations</p>
+          <div className="text-center bg-white/20 backdrop-blur rounded-2xl p-6 border border-slate-300/30">
+            <div className="text-3xl md:text-4xl font-extrabold text-slate-900"><CountUp end={120} duration={1.2} />+</div>
+            <p className="mt-2 text-slate-700">Connectors & integrations</p>
           </div>
-          <div className="text-center bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/20">
-            <div className="text-3xl md:text-4xl font-extrabold text-white">99.<CountUp end={9} duration={1.2} />%</div>
-            <p className="mt-2 text-gray-300">Agent reliability & uptime</p>
+          <div className="text-center bg-white/20 backdrop-blur rounded-2xl p-6 border border-slate-300/30">
+            <div className="text-3xl md:text-4xl font-extrabold text-slate-900">99.<CountUp end={9} duration={1.2} />%</div>
+            <p className="mt-2 text-slate-700">Agent reliability & uptime</p>
           </div>
         </div>
 
@@ -252,14 +252,14 @@ export function Why() {
           transition={{ delay: 0.8 }}
           className="text-center"
         >
-          <div className="inline-flex items-center gap-4 bg-white/10 backdrop-blur rounded-2xl px-8 py-4 shadow-lg border border-white/20">
-            <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-            <span className="text-gray-200 font-medium">
+          <div className="inline-flex items-center gap-4 bg-white/20 backdrop-blur rounded-2xl px-8 py-4 shadow-lg border border-slate-300/30">
+            <div className="w-3 h-3 bg-slate-600 rounded-full animate-pulse" />
+            <span className="text-slate-700 font-medium">
               Ready to automate your workflows?
             </span>
             <a 
               href="#cta" 
-              className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
+              className="px-6 py-2 bg-gradient-to-r from-slate-600 to-slate-700 text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
             >
               Get Started
             </a>
@@ -310,12 +310,12 @@ export function How() {
   ];
 
   return (
-    <section className="py-24 min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden">
+    <section className="py-24 min-h-screen bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400 relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-blue-600 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-purple-600 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 w-24 h-24 bg-indigo-600 rounded-full blur-2xl"></div>
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-slate-300 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-slate-400 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 w-24 h-24 bg-slate-500 rounded-full blur-2xl"></div>
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4">
@@ -324,16 +324,16 @@ export function How() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-4"
           >
-            How It <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Works</span>
+            How It <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-slate-700">Works</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-slate-700 max-w-3xl mx-auto leading-relaxed"
           >
             A proven 4-step process that transforms your business operations from manual to automated in record time.
           </motion.p>
@@ -355,15 +355,15 @@ export function How() {
                 <div className="hidden lg:block absolute top-16 left-full w-full h-0.5 bg-gradient-to-r from-blue-200 to-purple-200 transform translate-x-4"></div>
               )}
               
-              <div className="bg-white/10 backdrop-blur rounded-3xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-2">
+              <div className="bg-white rounded-3xl p-8 shadow-xl border border-slate-200 hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-2">
                 <div className="text-4xl mb-3">{step.icon}</div>
-                <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full flex items-center justify-center font-bold text-base mb-5">
+                <div className="w-10 h-10 bg-gradient-to-r from-slate-600 to-slate-700 text-white rounded-full flex items-center justify-center font-bold text-base mb-5">
                   {i + 1}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
-                <p className="text-gray-300 leading-relaxed mb-3 text-sm md:text-base">{step.desc}</p>
-                <p className="text-sm text-gray-400 mb-3">{step.details}</p>
-                <div className="inline-block px-3 py-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-300 rounded-full text-sm font-medium border border-blue-500/30">
+                <h3 className="text-xl font-bold text-slate-900 mb-3">{step.title}</h3>
+                <p className="text-slate-700 leading-relaxed mb-3 text-sm md:text-base">{step.desc}</p>
+                <p className="text-sm text-slate-600 mb-3">{step.details}</p>
+                <div className="inline-block px-3 py-1 bg-slate-200 text-slate-700 rounded-full text-sm font-medium border border-slate-300">
                   {step.metrics}
                 </div>
               </div>
@@ -372,8 +372,8 @@ export function How() {
         </div>
 
         {/* Process Metrics */}
-        <div className="bg-white/10 backdrop-blur rounded-3xl p-12 shadow-xl border border-white/20">
-          <h3 className="text-3xl font-bold text-center text-white mb-12">
+        <div className="bg-white rounded-3xl p-12 shadow-xl border border-slate-200">
+          <h3 className="text-3xl font-bold text-center text-slate-900 mb-12">
             Proven Results
           </h3>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -386,10 +386,10 @@ export function How() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="text-center"
               >
-                <div className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-2">
+                <div className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-slate-700 mb-2">
                   <CountUp end={metric.value} duration={2.5} suffix={metric.suffix} enableScrollSpy />
                 </div>
-                <p className="text-gray-300 font-medium">{metric.label}</p>
+                <p className="text-slate-700 font-medium">{metric.label}</p>
               </motion.div>
             ))}
           </div>
@@ -435,11 +435,11 @@ export function UseCases() {
   ];
 
   return (
-    <section className="py-32 min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden">
+    <section className="py-32 min-h-screen bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400 relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-32 right-20 w-64 h-64 bg-gradient-to-r from-pink-400 to-rose-400 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-32 left-20 w-48 h-48 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full blur-3xl"></div>
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-32 right-20 w-64 h-64 bg-slate-300 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-32 left-20 w-48 h-48 bg-slate-400 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4">
@@ -448,16 +448,16 @@ export function UseCases() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-bold text-white mb-6"
+            className="text-4xl md:text-6xl font-bold text-slate-900 mb-6"
           >
-            If it&apos;s <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-rose-400">repetitive</span>, Clockworq can handle it.
+            If it&apos;s <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-slate-700">repetitive</span>, Clockworq can handle it.
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl text-slate-700 max-w-3xl mx-auto leading-relaxed"
           >
             We turn time-consuming tasks into seamless, automated flows across every industry.
           </motion.p>
@@ -473,21 +473,21 @@ export function UseCases() {
               transition={{ duration: 0.6, delay: i * 0.2 }}
               className="group"
             >
-              <div className="bg-white/10 backdrop-blur rounded-3xl p-8 shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-2 h-full">
+              <div className="bg-white rounded-3xl p-8 shadow-xl border border-slate-200 hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-2 h-full">
                 <div className="text-6xl mb-6">{panel.icon}</div>
-                <h3 className="text-2xl font-bold text-white mb-4">{panel.title}</h3>
-                <p className="text-gray-300 leading-relaxed mb-6">{panel.desc}</p>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">{panel.title}</h3>
+                <p className="text-slate-700 leading-relaxed mb-6">{panel.desc}</p>
                 
                 <div className="space-y-3 mb-6">
                   {panel.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center gap-3">
                       <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${panel.color}`}></div>
-                      <span className="text-gray-200">{feature}</span>
+                      <span className="text-slate-700">{feature}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className={`inline-block px-4 py-2 bg-gradient-to-r ${panel.color} text-white rounded-full text-sm font-semibold`}>
+                <div className={`inline-block px-4 py-2 bg-slate-200 text-slate-800 rounded-full text-sm font-semibold border border-slate-300`}>
                   {panel.metrics}
                 </div>
               </div>
@@ -496,8 +496,8 @@ export function UseCases() {
         </div>
 
         {/* Industry Statistics */}
-        <div className="bg-white/10 backdrop-blur rounded-3xl p-12 shadow-xl border border-white/20">
-          <h3 className="text-3xl font-bold text-center text-white mb-12">
+        <div className="bg-white rounded-3xl p-12 shadow-xl border border-slate-200">
+          <h3 className="text-3xl font-bold text-center text-slate-900 mb-12">
             Industry Impact
           </h3>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -510,10 +510,10 @@ export function UseCases() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="text-center"
               >
-                <div className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-rose-400 mb-2">
+                <div className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-slate-700 mb-2">
                   <CountUp end={stat.value} duration={2.5} suffix={stat.suffix} enableScrollSpy />
                 </div>
-                <p className="text-gray-300 font-medium">{stat.label}</p>
+                <p className="text-slate-700 font-medium">{stat.label}</p>
               </motion.div>
             ))}
           </div>
@@ -527,56 +527,58 @@ export function Pricing() {
   const plans = [
     {
       name: "Starter",
-      price: 399,
-      description: "Perfect for small teams testing automation",
+      price: 299,
+      description: "Perfect for small teams getting started",
       features: [
-        "Up to 10 workflows",
-        "500k tokens/month",
-        "Core n8n integrations (Slack, Gmail, HubSpot, Notion)",
+        "Up to 5 workflows",
+        "250k tokens/month",
+        "Core integrations (Slack, Gmail, HubSpot)",
         "Email support",
-        "Basic analytics dashboard",
-        "Community support"
+        "Basic analytics",
+        "Community access"
       ],
-      bestFor: "Lightweight marketing reports, internal operations, simple agents",
+      bestFor: "Small teams, startups, freelancers",
       color: "from-blue-500 to-cyan-500",
-      popular: false
+      popular: false,
+      savings: "Save 25%"
     },
     {
-      name: "Growth",
-      price: 799,
-      description: "For scaling teams who want smart agents",
+      name: "Professional",
+      price: 599,
+      description: "For growing teams that need more power",
       features: [
-        "Up to 30 workflows",
-        "1.5M tokens/month",
-        "Multi-step workflows (lead scoring, daily reports, customer queries)",
+        "Up to 20 workflows",
+        "1M tokens/month",
+        "Advanced integrations (Notion, Airtable, Zapier)",
         "Priority support",
         "Advanced analytics & reporting",
-        "Access to hybrid model routing",
-        "Custom integrations (up to 5)",
-        "Phone & email support"
+        "Custom integrations (up to 3)",
+        "Phone support"
       ],
-      bestFor: "Marketing agencies, mid-sized service/product companies",
+      bestFor: "Growing companies, agencies, consultants",
       color: "from-purple-500 to-pink-500",
-      popular: true
+      popular: true,
+      savings: "Most Popular"
     },
     {
       name: "Enterprise",
       price: 0,
-      description: "For automation at scale",
+      description: "Custom solutions for large organizations",
       features: [
         "Unlimited workflows",
-        "5M+ tokens/month (flexible scaling)",
-        "Multi-agent orchestration & contextual memory",
-        "Custom integrations (ERP, CRMs, DevOps pipelines)",
-        "Dedicated account manager & SLA",
+        "Custom token limits",
         "White-label solutions",
+        "Dedicated account manager",
+        "Custom integrations",
         "Advanced security & compliance",
-        "24/7 dedicated support"
+        "24/7 dedicated support",
+        "SLA guarantees"
       ],
-      bestFor: "Large agencies, enterprise ops, product-led growth companies",
+      bestFor: "Large enterprises, agencies, product companies",
       color: "from-orange-500 to-red-500",
       popular: false,
-      enterprise: true
+      enterprise: true,
+      savings: "Custom Pricing"
     },
   ];
 
@@ -588,22 +590,22 @@ export function Pricing() {
   ];
 
   return (
-    <section className="py-32 min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden">
+    <section className="py-16 min-h-screen bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400 relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-64 h-64 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full blur-3xl"></div>
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-20 left-20 w-72 h-72 bg-slate-300 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-64 h-64 bg-slate-400 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4">
-        <div className="text-center mb-20">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-12">
+        <div className="text-center mb-16">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-bold text-white mb-6"
+            className="text-4xl md:text-6xl font-bold text-slate-900 mb-6"
           >
-            Simple plans that <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">grow</span> with you.
+            Choose Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Automation</span> Plan
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -612,11 +614,11 @@ export function Pricing() {
             transition={{ delay: 0.1 }}
             className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
           >
-            Choose the right package for your workflows and scale tokens as you grow. No hidden fees, no surprises.
+            Start free, scale as you grow. No hidden fees, cancel anytime.
           </motion.p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-20">
+        <div className="grid lg:grid-cols-3 gap-8 mb-16">
           {plans.map((plan, i) => (
             <motion.div
               key={plan.name}
@@ -624,58 +626,62 @@ export function Pricing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.15 }}
-              className={`relative group ${plan.popular ? 'lg:-mt-8' : ''}`}
+              className={`relative group ${plan.popular ? 'lg:-mt-4' : ''}`}
             >
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                  <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full text-sm font-semibold">
-                    Most Popular
+              {plan.savings && (
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
+                  <div className={`px-4 py-1 rounded-full text-xs font-semibold ${
+                    plan.popular 
+                      ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white' 
+                      : 'bg-green-500 text-white'
+                  }`}>
+                    {plan.savings}
                   </div>
                 </div>
               )}
               
-              <div className={`bg-white/10 backdrop-blur rounded-3xl p-8 shadow-xl border-2 transition-all duration-300 group-hover:-translate-y-2 h-full ${
+              <div className={`bg-white rounded-2xl p-6 shadow-xl border transition-all duration-300 group-hover:-translate-y-1 h-full ${
                 plan.popular 
-                  ? 'border-purple-500/30 shadow-purple-500/20' 
-                  : 'border-white/20 hover:shadow-2xl'
+                  ? 'border-slate-300 shadow-slate-300/40' 
+                  : 'border-slate-200 hover:border-slate-300'
               }`}>
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
-                  <p className="text-gray-300 mb-4">{plan.description}</p>
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">{plan.name}</h3>
+                  <p className="text-slate-700 text-sm mb-4">{plan.description}</p>
                   {plan.price ? (
-                    <div className="flex items-baseline justify-center gap-2">
-                      <span className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
+                    <div className="flex items-baseline justify-center gap-1">
+                      <span className="text-4xl font-extrabold text-slate-900">
                         <CountUp end={plan.price} duration={1.5} />
                       </span>
-                      <span className="text-xl text-gray-300">/mo</span>
+                      <span className="text-lg text-slate-700">/mo</span>
                     </div>
                   ) : (
-                    <div className="text-3xl font-bold text-white">Let&apos;s Chat</div>
+                    <div className="text-2xl font-bold text-slate-900">Custom</div>
                   )}
                 </div>
 
-                <ul className="space-y-4 mb-8">
+                <ul className="space-y-3 mb-6">
                   {plan.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <div className={`w-5 h-5 rounded-full bg-gradient-to-r ${plan.color} flex items-center justify-center flex-shrink-0 mt-0.5`}>
-                        <span className="text-white text-xs">✓</span>
+                      <div className={`w-4 h-4 rounded-full bg-slate-400 flex items-center justify-center flex-shrink-0 mt-1`}>
+                        <span className="text-white text-[10px] leading-none">✓</span>
                       </div>
-                      <span className="text-gray-200">{feature}</span>
+                      <span className="text-slate-700 text-sm">{feature}</span>
                     </li>
                   ))}
                 </ul>
 
-                <div className="mb-8 p-4 bg-white/5 rounded-2xl border border-white/10">
-                  <p className="text-sm text-gray-300 font-medium">Best for:</p>
-                  <p className="text-sm text-gray-200 mt-1">{plan.bestFor}</p>
+                <div className="mb-6 p-3 bg-slate-100 rounded-xl border border-slate-200">
+                  <p className="text-xs text-slate-600 font-medium">Best for:</p>
+                  <p className="text-xs text-slate-700 mt-1">{plan.bestFor}</p>
                 </div>
 
                 <a 
                   href="#cta" 
-                  className={`w-full inline-flex justify-center items-center rounded-2xl px-6 py-4 font-semibold transition-all duration-300 ${
+                  className={`w-full inline-flex justify-center items-center rounded-xl px-4 py-3 font-semibold text-sm transition-all duration-300 ${
                     plan.popular
-                      ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 shadow-lg hover:shadow-xl'
-                      : 'bg-gray-900 text-white hover:bg-gray-800'
+                      ? 'bg-slate-900 text-white hover:bg-slate-800 shadow-lg hover:shadow-xl'
+                      : 'bg-slate-800 text-white hover:bg-slate-700 border border-slate-700'
                   }`}
                 >
                   {plan.enterprise ? 'Contact Sales' : 'Get Started'}
@@ -686,11 +692,11 @@ export function Pricing() {
         </div>
 
         {/* Pricing Metrics */}
-        <div className="bg-white/10 backdrop-blur rounded-3xl p-12 shadow-xl border border-white/20 mb-12">
-          <h3 className="text-3xl font-bold text-center text-white mb-12">
-            Proven Value
+        <div className="bg-white/5 backdrop-blur rounded-2xl p-8 shadow-xl border border-white/20 mb-8">
+          <h3 className="text-2xl font-bold text-center text-white mb-8">
+            Proven Results
           </h3>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {pricingMetrics.map((metric, i) => (
               <motion.div
                 key={metric.label}
@@ -700,10 +706,10 @@ export function Pricing() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="text-center"
               >
-                <div className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-2">
+                <div className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-2">
                   <CountUp end={metric.value} duration={2.5} suffix={metric.suffix} enableScrollSpy />
                 </div>
-                <p className="text-gray-300 font-medium">{metric.label}</p>
+                <p className="text-gray-300 font-medium text-sm">{metric.label}</p>
               </motion.div>
             ))}
           </div>
@@ -1016,10 +1022,10 @@ export function FinalCTA() {
   };
 
   return (
-    <section className="relative py-32 min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden">
+    <section className="relative py-32 min-h-screen bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400 overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-200/0 via-slate-300/30 to-slate-400/60" />
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full border border-white/10 animate-spin-slow" />
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[400px] rounded-full border border-blue-500/20 animate-spin-slow" style={{ animationDirection: 'reverse', animationDuration: '20s' }} />
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[200px] w-[200px] rounded-full border border-purple-500/30 animate-spin-slow" style={{ animationDuration: '8s' }} />
@@ -1054,10 +1060,10 @@ export function FinalCTA() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-7xl font-extrabold text-white mb-8 leading-tight"
+            className="text-4xl md:text-7xl font-extrabold text-slate-900 mb-8 leading-tight"
           >
             Stop working like a machine.<br />
-            Let the machines work like <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Clockworq</span>.
+            Let the machines work like <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-slate-700">Clockworq</span>.
           </motion.h2>
           
           <motion.p 
@@ -1065,7 +1071,7 @@ export function FinalCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-12"
+            className="text-xl text-slate-700 max-w-3xl mx-auto leading-relaxed mb-12"
           >
             Join hundreds of companies already saving 40+ hours per week with intelligent automation. 
             Your transformation starts with a single conversation.
@@ -1083,15 +1089,15 @@ export function FinalCTA() {
               transition={{ duration: 0.6, delay: i * 0.1 }}
               className="text-center"
             >
-              <div className="text-3xl font-bold text-white mb-2">{metric.value}</div>
-              <p className="text-gray-400 font-medium">{metric.label}</p>
+              <div className="text-3xl font-bold text-slate-900 mb-2">{metric.value}</div>
+              <p className="text-slate-700 font-medium">{metric.label}</p>
             </motion.div>
           ))}
         </div>
 
         {/* Benefits List */}
-        <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 mb-16 border border-white/20">
-          <h3 className="text-2xl font-bold text-white text-center mb-8">What you get:</h3>
+        <div className="bg-white rounded-3xl p-8 mb-16 border border-slate-200">
+          <h3 className="text-2xl font-bold text-slate-900 text-center mb-8">What you get:</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {benefits.map((benefit, i) => (
               <motion.div
@@ -1102,8 +1108,8 @@ export function FinalCTA() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="flex items-center gap-3"
               >
-                <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full flex-shrink-0"></div>
-                <span className="text-gray-200">{benefit}</span>
+                <div className="w-2 h-2 bg-slate-500 rounded-full flex-shrink-0"></div>
+                <span className="text-slate-700">{benefit}</span>
               </motion.div>
             ))}
           </div>
@@ -1117,7 +1123,7 @@ export function FinalCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="group inline-flex items-center gap-3 rounded-2xl px-8 py-4 bg-white text-gray-900 font-semibold text-lg hover:bg-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl"
+            className="group inline-flex items-center gap-3 rounded-2xl px-8 py-4 bg-white text-slate-900 font-semibold text-lg hover:bg-slate-100 transition-all duration-300 shadow-xl hover:shadow-2xl"
           >
             <span>Book a Free Demo</span>
             <span className="group-hover:translate-x-1 transition-transform">→</span>
@@ -1129,7 +1135,7 @@ export function FinalCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
-            className="group inline-flex items-center gap-3 rounded-2xl px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-xl hover:shadow-2xl"
+            className="group inline-flex items-center gap-3 rounded-2xl px-8 py-4 bg-slate-900 text-white font-semibold text-lg hover:bg-slate-800 transition-all duration-300 shadow-xl hover:shadow-2xl"
           >
             <span>Automate My Workflows</span>
             <span className="group-hover:translate-x-1 transition-transform">⚡</span>

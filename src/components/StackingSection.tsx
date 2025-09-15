@@ -26,7 +26,6 @@ export default function StackingSection({ children, className = "", id, isFirst 
       // Get all stacking sections to determine proper z-index
       const allSections = document.querySelectorAll('.stacking-section');
       const index = Array.from(allSections).indexOf(section);
-      // const totalSections = allSections.length; // Unused variable
       const nextSection = (index >= 0 && index < allSections.length - 1)
         ? (allSections[index + 1] as HTMLElement)
         : undefined;
@@ -58,7 +57,7 @@ export default function StackingSection({ children, className = "", id, isFirst 
         }
       });
 
-      // If not the first section, add slide-up animation
+      // Add slide-up animation for all sections except the first
       if (!isFirst) {
         // Set initial position off-screen for regular-height sections
         if (!isTall) {
@@ -90,6 +89,9 @@ export default function StackingSection({ children, className = "", id, isFirst 
         gsap.set(section, {
           boxShadow: "0 -20px 60px rgba(0,0,0,0.3)",
         });
+      } else {
+        // For first section, ensure it's visible
+        gsap.set(section, { yPercent: 0, opacity: 1, zIndex: 1000 + index });
       }
 
       setIsInitialized(true);

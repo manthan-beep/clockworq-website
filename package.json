@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start -p $PORT",
-    "lint": "eslint"
+    "lint": "eslint",
+    "railway:build": "next build",
+    "railway:start": "next start -p $PORT"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.7",

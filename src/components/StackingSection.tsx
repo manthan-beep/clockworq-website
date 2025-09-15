@@ -26,7 +26,7 @@ export default function StackingSection({ children, className = "", id, isFirst 
       // Get all stacking sections to determine proper z-index
       const allSections = document.querySelectorAll('.stacking-section');
       const index = Array.from(allSections).indexOf(section);
-      const totalSections = allSections.length;
+      // const totalSections = allSections.length; // Unused variable
       const nextSection = (index >= 0 && index < allSections.length - 1)
         ? (allSections[index + 1] as HTMLElement)
         : undefined;
@@ -45,7 +45,7 @@ export default function StackingSection({ children, className = "", id, isFirst 
       console.log(`Section ${id || index}: z-index ${1000 + index}`);
 
       // Pin logic: for tall sections allow full scroll (pinSpacing true), otherwise stack tightly
-      const trigger = ScrollTrigger.create({
+      ScrollTrigger.create({
         trigger: section,
         start: "top top",
         endTrigger: nextSection ?? section,
@@ -101,7 +101,7 @@ export default function StackingSection({ children, className = "", id, isFirst 
         if (st.trigger === section) st.kill();
       });
     };
-  }, [isFirst]);
+  }, [isFirst, id]);
 
   // Re-initialize when sections change
   useEffect(() => {

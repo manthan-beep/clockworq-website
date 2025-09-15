@@ -13,23 +13,26 @@ const bodyFont = Inter({
   subsets: ["latin"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://clockworq.ai';
+const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'Clockworq.ai';
+
 export const metadata: Metadata = {
-  title: "Clockworq.ai – Agents That Work Like Clockworq",
+  title: `${siteName} – Agents That Work Like Clockworq`,
   description:
     "We build AI agents that automate the repetitive and monotonous, so your team can focus on growth and strategy.",
-  metadataBase: new URL("https://clockworq.ai"),
+  metadataBase: new URL(siteUrl),
   openGraph: {
-    title: "Clockworq.ai – Agents That Work Like Clockworq",
+    title: `${siteName} – Agents That Work Like Clockworq`,
     description:
       "AI agents that automate marketing reports, customer workflows, and more.",
-    url: "https://clockworq.ai",
-    siteName: "Clockworq.ai",
+    url: siteUrl,
+    siteName: siteName,
     images: [
       {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Clockworq.ai",
+        alt: siteName,
       },
     ],
     locale: "en_US",
@@ -37,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Clockworq.ai – Agents That Work Like Clockworq",
+    title: `${siteName} – Agents That Work Like Clockworq`,
     description:
       "AI agents that automate marketing reports, customer workflows, and more.",
     images: ["/og.png"],

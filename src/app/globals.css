@@ -32,10 +32,13 @@ body {
   font-family: var(--font-body), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
     "Segoe UI Emoji";
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 html {
   background-color: var(--background);
+  scroll-behavior: smooth;
 }
 
 html:focus-within {
@@ -52,9 +55,22 @@ html:focus-within {
   animation: spin-slow 20s linear infinite;
 }
 
+.animate-gradient-x {
+  animation: gradient-x 3s ease-in-out infinite;
+}
+
 @keyframes pulse-glow {
   0%, 100% { box-shadow: 0 0 0 0 rgba(0, 209, 193, 0.45); }
   50% { box-shadow: 0 0 24px 2px rgba(0, 209, 193, 0.35); }
+}
+
+@keyframes gradient-x {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .glow-border {

@@ -11,15 +11,16 @@ interface StackingSectionProps {
   className?: string;
   id?: string;
   isFirst?: boolean;
+  enableStacking?: boolean; // New prop
 }
 
-export default function StackingSection({ children, className = "", id, isFirst = false }: StackingSectionProps) {
+export default function StackingSection({ children, className = "", id, isFirst = false, enableStacking = true }: StackingSectionProps) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
     const section = sectionRef.current;
-    if (!section) return;
+    if (!section || !enableStacking) return;
 
     // Small delay to ensure all sections are rendered
     const timeoutId = setTimeout(() => {
@@ -43,54 +44,39 @@ export default function StackingSection({ children, className = "", id, isFirst 
       // Debug: Log stacking order
       console.log(`Section ${id || index}: z-index ${1000 + index}`);
 
-      // Pin logic: for tall sections allow full scroll (pinSpacing true), otherwise stack tightly
+      // Pin logic: For tall sections, pin until fully scrolled (bottom hits bottom)
       ScrollTrigger.create({
         trigger: section,
         start: "top top",
         endTrigger: nextSection ?? section,
-        end: nextSection ? "top top" : (isTall ? "bottom top" : "+=100vh"),
+        end: nextSection ? "top top" : (isTall ? "bottom bottom" : "+=100vh"), // Changed to bottom bottom for tall
         pin: true,
         pinSpacing: isTall,
-        anticipatePin: 2,
+        anticipatePin: 1,
+        markers: true, // Temporary for debugging
         onUpdate: () => {
           gsap.set(section, { zIndex: 1000 + index });
         }
       });
 
-      // Add slide-up animation for all sections except the first
+      // Add smooth reveal for all sections except first
       if (!isFirst) {
-        // Set initial position off-screen for regular-height sections
-        if (!isTall) {
-          gsap.set(section, { yPercent: 100, opacity: 0 });
-        } else {
-          gsap.set(section, { yPercent: 0, opacity: 1 });
-        }
+        // Initial state: Slightly below for smooth entrance
+        gsap.set(section, { yPercent: isTall ? 0 : 100, opacity: 1 });
 
-        // Animate slide-up when section comes into view
-        if (!isTall) {
-          gsap.to(section, {
-            yPercent: 0,
-            opacity: 1,
-            ease: "none",
-            scrollTrigger: {
-              trigger: section,
-              start: "top 120%",
-              end: "top top",
-              scrub: 0.6,
-              invalidateOnRefresh: true,
-              onUpdate: () => {
-                gsap.set(section, { zIndex: 1000 + index });
-              }
-            }
-          });
-        }
-
-        // Add shadow for depth
-        gsap.set(section, {
-          boxShadow: "0 -20px 60px rgba(0,0,0,0.3)",
+        // Reveal animation: Slide up smoothly as previous section scrolls away
+        gsap.to(section, {
+          yPercent: 0,
+          ease: "power1.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top bottom", // Start animation when top of section hits bottom of viewport
+            end: "top top", // End when top of section hits top of viewport
+            scrub: true, // Smooth with scroll
+            invalidateOnRefresh: true
+          }
         });
       } else {
-        // For first section, ensure it's visible
         gsap.set(section, { yPercent: 0, opacity: 1, zIndex: 1000 + index });
       }
 
@@ -103,20 +89,20 @@ export default function StackingSection({ children, className = "", id, isFirst 
         if (st.trigger === section) st.kill();
       });
     };
-  }, [isFirst, id]);
+  }, [isFirst, id, enableStacking]);
 
-  // Re-initialize when sections change
+  // Remove re-initialize effect if not stacking
   useEffect(() => {
-    if (isInitialized) {
+    if (isInitialized && enableStacking) {
       ScrollTrigger.refresh();
     }
-  }, [isInitialized]);
+  }, [isInitialized, enableStacking]);
 
   return (
     <section 
       ref={sectionRef} 
       id={id}
-      className={`stacking-section scroll-mt-24 ${className}`}
+      className={`stacking-section scroll-mt-24 ${enableStacking ? 'min-h-screen' : ''} ${className}`}
     >
       {children}
     </section>

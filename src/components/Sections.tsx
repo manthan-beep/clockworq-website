@@ -78,27 +78,27 @@ export function TimeSection() {
 export function Why() {
   const features = [
     { 
-      icon: "⚡", 
-      title: "Always On", 
-      desc: "AI agents run 24/7 with precision.",
+      icon: "🎯", 
+      title: "Smart Lead Discovery", 
+      desc: "AI finds and qualifies prospects 24/7 with precision targeting.",
       color: "from-slate-400 to-slate-500"
     },
     { 
-      icon: "🔗", 
-      title: "Seamless Integration", 
-      desc: "Works with n8n, CRMs, ERPs, APIs.",
+      icon: "🔍", 
+      title: "Data Enrichment", 
+      desc: "Automatically enrich leads with contact info, company data, and intent signals.",
       color: "from-slate-500 to-slate-600"
     },
     { 
-      icon: "📈", 
-      title: "Scale with Ease", 
-      desc: "From startups to enterprises.",
+      icon: "📧", 
+      title: "Automated Outreach", 
+      desc: "Personalized email sequences that convert at 3x higher rates.",
       color: "from-slate-600 to-slate-700"
     },
     { 
-      icon: "🎯", 
-      title: "Human-Centered", 
-      desc: "We remove grunt work so your people can innovate.",
+      icon: "📊", 
+      title: "Pipeline Management", 
+      desc: "Track, nurture, and convert leads with intelligent CRM automation.",
       color: "from-slate-700 to-slate-800"
     },
   ];
@@ -126,14 +126,14 @@ export function Why() {
               Why Clockworq.ai?
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-4 leading-tight">
-              Because your time should drive{" "}
+              Because lead generation should be{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 via-slate-700 to-slate-600">
-                results
+                automated
               </span>
-              , not busywork.
+              , not manual.
             </h2>
             <p className="text-lg md:text-xl text-slate-700 max-w-4xl mx-auto leading-relaxed">
-              Let agents handle repetition so you can focus on decisions.
+              Let AI agents find, enrich, and nurture leads while your sales team closes deals.
             </p>
           </motion.div>
         </div>
@@ -271,39 +271,39 @@ export function Why() {
 export function How() {
   const steps = [
     { 
-      title: "Discover", 
-      desc: "We analyze your workflows and identify bottlenecks.",
+      title: "Lead Discovery", 
+      desc: "AI finds and qualifies prospects from multiple sources.",
+      icon: "🎯",
+      details: "Automated prospecting using LinkedIn, company databases, and intent signals",
+      metrics: "1000+ leads/day"
+    },
+    { 
+      title: "Data Enrichment", 
+      desc: "Enhance leads with contact info and company intelligence.",
       icon: "🔍",
-      details: "Deep dive into your current processes, pain points, and automation opportunities",
-      metrics: "2-3 days analysis"
+      details: "Automatically enrich with emails, phone numbers, company size, and decision maker info",
+      metrics: "95% data accuracy"
     },
     { 
-      title: "Design", 
-      desc: "Build custom AI agents tailored to your needs.",
-      icon: "🎨",
-      details: "Create intelligent workflows using n8n, custom integrations, and AI models",
-      metrics: "1-2 weeks development"
+      title: "Outreach Automation", 
+      desc: "Personalized email sequences that convert.",
+      icon: "📧",
+      details: "AI-powered email campaigns with A/B testing and personalization",
+      metrics: "3x higher open rates"
     },
     { 
-      title: "Deploy", 
-      desc: "Integrate into your stack with minimal disruption.",
-      icon: "🚀",
-      details: "Seamless integration with your existing tools and zero downtime deployment",
-      metrics: "24-48 hours setup"
-    },
-    { 
-      title: "Optimize", 
-      desc: "Continuously refine for efficiency and cost.",
-      icon: "⚡",
-      details: "Monitor performance, A/B test improvements, and scale based on results",
-      metrics: "Ongoing optimization"
+      title: "Pipeline Management", 
+      desc: "Track and nurture leads through your CRM.",
+      icon: "📊",
+      details: "Automated lead scoring, follow-ups, and handoff to sales team",
+      metrics: "40% faster conversion"
     },
   ];
 
   const processMetrics = [
-    { label: "Average Setup Time", value: 14, suffix: " days" },
-    { label: "ROI Realized", value: 340, suffix: "%" },
-    { label: "Time Saved Monthly", value: 120, suffix: " hours" },
+    { label: "Leads Generated Daily", value: 1000, suffix: "+" },
+    { label: "Conversion Rate", value: 15, suffix: "%" },
+    { label: "Time Saved Weekly", value: 40, suffix: " hours" },
     { label: "Client Satisfaction", value: 98, suffix: "%" }
   ];
 
@@ -333,12 +333,12 @@ export function How() {
             transition={{ delay: 0.1 }}
             className="text-lg md:text-xl text-slate-700 max-w-3xl mx-auto leading-relaxed"
           >
-            A proven 4-step process that transforms your business operations from manual to automated in record time.
+            A proven 4-step process that transforms your lead generation from manual prospecting to AI-powered automation.
           </motion.p>
         </div>
 
         {/* Process Steps */}
-        <div className="grid lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid lg:grid-cols-4 gap-6 mb-16 items-stretch">
           {steps.map((step, i) => (
             <motion.div
               key={step.title}
@@ -353,16 +353,22 @@ export function How() {
                 <div className="hidden lg:block absolute top-16 left-full w-full h-0.5 bg-gradient-to-r from-blue-200 to-purple-200 transform translate-x-4"></div>
               )}
               
-              <div className="bg-white rounded-3xl p-8 shadow-xl border border-slate-200 hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-2">
-                <div className="text-4xl mb-3">{step.icon}</div>
-                <div className="w-10 h-10 bg-gradient-to-r from-slate-600 to-slate-700 text-white rounded-full flex items-center justify-center font-bold text-base mb-5">
-                  {i + 1}
+              <div className="bg-white rounded-3xl p-8 shadow-xl border border-slate-200 hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-2 h-full flex flex-col">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="text-4xl">{step.icon}</div>
+                  <div className="w-10 h-10 bg-gradient-to-r from-slate-600 to-slate-700 text-white rounded-full flex items-center justify-center font-bold text-base">
+                    {i + 1}
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{step.title}</h3>
-                <p className="text-slate-700 leading-relaxed mb-3 text-sm md:text-base">{step.desc}</p>
-                <p className="text-sm text-slate-600 mb-3">{step.details}</p>
-                <div className="inline-block px-3 py-1 bg-slate-200 text-slate-700 rounded-full text-sm font-medium border border-slate-300">
-                  {step.metrics}
+                <div className="flex-1 flex flex-col">
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">{step.title}</h3>
+                  <p className="text-slate-700 leading-relaxed mb-3 text-sm md:text-base flex-1">{step.desc}</p>
+                  <p className="text-sm text-slate-600 mb-4">{step.details}</p>
+                  <div className="mt-auto">
+                    <div className="inline-block px-3 py-1 bg-slate-200 text-slate-700 rounded-full text-sm font-medium border border-slate-300">
+                      {step.metrics}
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -400,35 +406,35 @@ export function How() {
 export function UseCases() {
   const panels = [
     {
-      icon: "📊",
-      title: "Marketing Agencies",
-      desc: "Automated campaign reports, lead scoring, client dashboards.",
-      features: ["Campaign Performance Analysis", "Lead Qualification", "Client Reporting", "ROI Tracking"],
-      metrics: "70% time reduction",
+      icon: "🏢",
+      title: "B2B SaaS Companies",
+      desc: "Automated lead discovery, enrichment, and outreach for software sales.",
+      features: ["LinkedIn Prospecting", "Email Sequence Automation", "Lead Scoring", "CRM Integration"],
+      metrics: "3x more qualified leads",
       color: "from-pink-500 to-rose-500"
     },
     {
-      icon: "📁",
-      title: "Service Companies",
-      desc: "HR workflows, document approvals, compliance automation.",
-      features: ["Employee Onboarding", "Document Processing", "Compliance Monitoring", "Workflow Approvals"],
-      metrics: "85% efficiency gain",
+      icon: "🏭",
+      title: "Manufacturing & Industrial",
+      desc: "Target decision makers at manufacturing companies and industrial buyers.",
+      features: ["Company Database Mining", "Decision Maker Identification", "Trade Show Lead Capture", "Follow-up Automation"],
+      metrics: "5x lead volume increase",
       color: "from-blue-500 to-cyan-500"
     },
     {
-      icon: "🤖",
-      title: "Product Companies",
-      desc: "Feedback analysis, support bots, devops automation.",
-      features: ["Customer Feedback Analysis", "Support Ticket Routing", "Deployment Automation", "Performance Monitoring"],
-      metrics: "60% faster resolution",
+      icon: "🏥",
+      title: "Professional Services",
+      desc: "Generate leads for consulting, legal, accounting, and healthcare services.",
+      features: ["Industry-Specific Targeting", "Referral Automation", "Content-Based Lead Scoring", "Appointment Setting"],
+      metrics: "40% higher conversion",
       color: "from-green-500 to-emerald-500"
     },
   ];
 
   const industryStats = [
     { label: "Industries Served", value: 12, suffix: "+" },
-    { label: "Automation Success Rate", value: 95, suffix: "%" },
-    { label: "Average Time Saved", value: 40, suffix: " hours/week" },
+    { label: "Lead Generation Success", value: 95, suffix: "%" },
+    { label: "Leads Generated Weekly", value: 5000, suffix: "+" },
     { label: "Client Retention", value: 92, suffix: "%" }
   ];
 
@@ -448,7 +454,7 @@ export function UseCases() {
             viewport={{ once: true }}
             className="text-4xl md:text-6xl font-bold text-slate-900 mb-6"
           >
-            If it&apos;s <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-slate-700">repetitive</span>, Clockworq can handle it.
+            If you need <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-slate-700">leads</span>, Clockworq can generate them.
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -457,7 +463,7 @@ export function UseCases() {
             transition={{ delay: 0.1 }}
             className="text-xl text-slate-700 max-w-3xl mx-auto leading-relaxed"
           >
-            We turn time-consuming tasks into seamless, automated flows across every industry.
+            We turn manual prospecting into automated lead generation across every industry.
           </motion.p>
         </div>
 

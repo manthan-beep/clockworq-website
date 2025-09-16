@@ -9,38 +9,38 @@ const navItems = [
     label: "Why", 
     href: "#why",
     dropdown: [
-      { label: "Problem We Solve", href: "#why" },
-      { label: "Our Approach", href: "#why" },
-      { label: "Success Stories", href: "#why" }
+      { label: "Problem We Solve", href: "#why", key: "why-problem" },
+      { label: "Our Approach", href: "#why", key: "why-approach" },
+      { label: "Success Stories", href: "#why", key: "why-stories" }
     ]
   },
   { 
     label: "How", 
     href: "#how",
     dropdown: [
-      { label: "Our Process", href: "#how" },
-      { label: "Technology Stack", href: "#how" },
-      { label: "Integration", href: "#how" }
+      { label: "Our Process", href: "#how", key: "how-process" },
+      { label: "Technology Stack", href: "#how", key: "how-tech" },
+      { label: "Integration", href: "#how", key: "how-integration" }
     ]
   },
   { 
     label: "Use cases", 
     href: "#use-cases",
     dropdown: [
-      { label: "Marketing Automation", href: "#use-cases" },
-      { label: "Customer Support", href: "#use-cases" },
-      { label: "Data Processing", href: "#use-cases" },
-      { label: "Workflow Management", href: "#use-cases" }
+      { label: "Marketing Automation", href: "#use-cases", key: "use-marketing" },
+      { label: "Customer Support", href: "#use-cases", key: "use-support" },
+      { label: "Data Processing", href: "#use-cases", key: "use-data" },
+      { label: "Workflow Management", href: "#use-cases", key: "use-workflow" }
     ]
   },
   { 
     label: "Pricing", 
     href: "#pricing",
     dropdown: [
-      { label: "Starter Plan", href: "#pricing" },
-      { label: "Professional", href: "#pricing" },
-      { label: "Enterprise", href: "#pricing" },
-      { label: "Custom Solutions", href: "#pricing" }
+      { label: "Starter Plan", href: "#pricing", key: "price-starter" },
+      { label: "Professional", href: "#pricing", key: "price-professional" },
+      { label: "Enterprise", href: "#pricing", key: "price-enterprise" },
+      { label: "Custom Solutions", href: "#pricing", key: "price-custom" }
     ]
   },
 ];
@@ -160,7 +160,7 @@ export default function Navbar() {
                       <div className="p-2">
                         {item.dropdown?.map((dropdownItem, dropdownIndex) => (
                           <motion.a
-                            key={dropdownItem.href}
+                            key={dropdownItem.key || dropdownItem.href}
                             href={dropdownItem.href}
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
@@ -318,7 +318,7 @@ export default function Navbar() {
                         <div className="ml-4 mt-2 space-y-1">
                           {item.dropdown.map((dropdownItem, dropdownIndex) => (
                             <motion.a
-                              key={dropdownItem.href}
+                              key={dropdownItem.key || dropdownItem.href}
                               href={dropdownItem.href}
                               initial={{ opacity: 0, x: -10 }}
                               animate={{ opacity: 1, x: 0 }}

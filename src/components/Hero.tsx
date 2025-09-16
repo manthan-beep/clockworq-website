@@ -120,7 +120,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-          className="text-6xl font-black text-white md:text-8xl lg:text-9xl leading-[0.9] mb-8"
+          className="text-6xl font-black text-white md:text-8xl lg:text-9xl leading-[1.1] mb-8"
         >
           <span className="block">Agents That</span>
           <span className="block bg-gradient-to-r from-slate-300 via-white to-slate-300 bg-clip-text text-transparent">

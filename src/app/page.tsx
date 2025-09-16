@@ -1,5 +1,5 @@
 import Hero from "@/components/Hero";
-import { TimeSection, Why, How, UseCases, Pricing, SocialProof, FinalCTA } from "@/components/Sections";
+import { TimeSection, Why, How, UseCases, Pricing, SocialProof, Team, FinalCTA } from "@/components/Sections";
 import StackingSection from "@/components/StackingSection";
 import ScrollProgress from "@/components/ScrollProgress";
 
@@ -16,19 +16,22 @@ export default function Home() {
       <StackingSection id="why">
         <Why />
       </StackingSection>
-      <StackingSection id="how">
+      <StackingSection id="how" enableStacking={false}>
         <How />
       </StackingSection>
-      <StackingSection id="use-cases">
+      <StackingSection id="use-cases" enableStacking={false}>
         <UseCases />
       </StackingSection>
-      <StackingSection id="pricing">
+      <StackingSection id="pricing" enableStacking={false}>
         <Pricing />
       </StackingSection>
-      {/* <StackingSection id="testimonials">
+      <StackingSection id="team" enableStacking={false}>
+        <Team />
+      </StackingSection>
+      {/* <StackingSection id="testimonials" enableStacking={false}>
         <SocialProof />
       </StackingSection> */}
-      <StackingSection id="cta">
+      <StackingSection id="cta" enableStacking={false}>
         <FinalCTA />
       </StackingSection>
     </>

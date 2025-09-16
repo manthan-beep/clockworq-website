@@ -33,12 +33,23 @@ export default function ContactModal({ isOpen, onClose, type }: ContactModalProp
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API call - you'll replace this with actual SendGrid integration
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, type }),
+      });
+      if (!res.ok) {
+        throw new Error("Failed to send message");
+      }
+      setIsSubmitted(true);
+    } catch (err) {
+      console.error(err);
+      alert("There was an error sending your message. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
     
     // Reset form after 3 seconds
     setTimeout(() => {

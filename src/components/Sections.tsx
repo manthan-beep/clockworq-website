@@ -310,7 +310,7 @@ export function How() {
   ];
 
   return (
-    <section className="py-24 min-h-screen bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400 relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 left-10 w-32 h-32 bg-slate-300 rounded-full blur-3xl"></div>
@@ -435,7 +435,7 @@ export function UseCases() {
   ];
 
   return (
-    <section className="py-32 min-h-screen bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400 relative overflow-hidden">
+    <section className="py-32 bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-32 right-20 w-64 h-64 bg-slate-300 rounded-full blur-3xl"></div>
@@ -590,7 +590,7 @@ export function Pricing() {
   ];
 
   return (
-    <section className="py-16 min-h-screen bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400 relative overflow-hidden">
+    <section className="py-16 bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 left-20 w-72 h-72 bg-slate-300 rounded-full blur-3xl"></div>
@@ -620,12 +620,8 @@ export function Pricing() {
 
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
           {plans.map((plan, i) => (
-            <motion.div
+            <div
               key={plan.name}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
               className={`relative group ${plan.popular ? 'lg:-mt-4' : ''}`}
             >
               {plan.savings && (
@@ -650,6 +646,7 @@ export function Pricing() {
                   <p className="text-slate-700 text-sm mb-4">{plan.description}</p>
                   {plan.price ? (
                     <div className="flex items-baseline justify-center gap-1">
+                      <span className="text-2xl font-bold text-slate-700">$</span>
                       <span className="text-4xl font-extrabold text-slate-900">
                         <CountUp end={plan.price} duration={1.5} />
                       </span>
@@ -687,7 +684,7 @@ export function Pricing() {
                   {plan.enterprise ? 'Contact Sales' : 'Get Started'}
                 </a>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
@@ -889,7 +886,7 @@ export function SocialProof() {
   ];
 
   return (
-    <section className="py-32 min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden">
+    <section className="py-32 bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-32 left-32 w-80 h-80 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full blur-3xl"></div>
@@ -997,6 +994,143 @@ export function SocialProof() {
   );
 }
 
+export function Team() {
+  const teamMembers = [
+    {
+      name: "Aslam Basheer",
+      role: "CEO & Founder",
+      bio: "Visionary leader with 10+ years in  enterprise technology. Former executive at leading tech companies, driving innovation in automation and workflow optimization.",
+      image: "/images/CEO.jpg",
+      expertise: ["AI Strategy", "Product Vision", "Enterprise Sales"],
+      linkedin: "https://www.linkedin.com/in/aslambasheer1/"
+    },
+    {
+      name: "Farnaz",
+      role: "COO",
+      bio: "Operations excellence expert with 8+ years scaling high-growth tech companies. Specializes in building efficient systems and managing complex operations for AI-driven organizations.",
+      image: "/images/COO.jpg",
+      expertise: ["Operations", "Team Building", "Process Optimization"],
+      linkedin: "https://www.linkedin.com/in/umme-farnaz-37a35662/"
+    },
+    {
+      name: "Manthan Sharma",
+      role: "CTO",
+      bio: "Technical architect and AI researcher with deep expertise in machine learning and automation systems. Leads the development of Clockworq's core AI engine and technical infrastructure.",
+      image: "/images/CTO.jpg",
+      expertise: ["AI/ML", "System Architecture", "Technical Leadership"],
+      linkedin: "https://www.linkedin.com/in/manthan-sharma-958372213/"
+    }
+  ];
+
+  return (
+    <section className="py-24 bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-20 left-20 w-72 h-72 bg-slate-300 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-64 h-64 bg-slate-400 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6">
+            Meet the <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-slate-700">Team</span>
+          </h2>
+          <p className="text-xl text-slate-700 max-w-3xl mx-auto leading-relaxed">
+            The minds behind Clockworq.ai - combining decades of experience in AI, operations, and enterprise technology.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-3 gap-8">
+          {teamMembers.map((member, i) => (
+            <div
+              key={member.name}
+              className="bg-white rounded-2xl p-8 shadow-xl border border-slate-200 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+            >
+              {/* Profile Image */}
+              <div className={`text-center ${member.role === 'COO' ? 'mb-4' : 'mb-6'}`}>
+                <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4 border-4 border-slate-200 shadow-lg">
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                    style={{
+                      objectPosition: member.role === 'COO' ? 'center 20%' : '15% 0%',
+                      transform: member.role === 'COO' ? 'scale(1.1) translateY(5px)' : 'scale(1.3) translateY(-10px)',
+                      transformOrigin: 'center center'
+                    }}
+                    onError={(e) => {
+                      // Fallback to emoji if image fails to load
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      const parent = target.parentElement;
+                      if (parent) {
+                        parent.innerHTML = `<div class="w-full h-full bg-gradient-to-r from-slate-100 to-slate-200 rounded-full flex items-center justify-center text-5xl">👤</div>`;
+                      }
+                    }}
+                  />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-1">{member.name}</h3>
+                <p className="text-slate-600 font-semibold">{member.role}</p>
+              </div>
+
+              {/* Bio */}
+              <p className="text-slate-700 text-sm leading-relaxed mb-6">{member.bio}</p>
+
+              {/* Expertise Tags */}
+              <div className="mb-6">
+                <h4 className="text-sm font-semibold text-slate-900 mb-3">Expertise:</h4>
+                <div className="flex flex-wrap gap-2">
+                  {member.expertise.map((skill, skillIndex) => (
+                    <span
+                      key={skillIndex}
+                      className="px-3 py-1 bg-slate-100 text-slate-700 text-xs font-medium rounded-full"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* LinkedIn Link */}
+              <a
+                href={member.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 transition-colors text-sm font-medium"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                Connect on LinkedIn
+              </a>
+            </div>
+          ))}
+        </div>
+
+        {/* Team Stats */}
+        <div className="mt-16 bg-white rounded-2xl p-8 shadow-xl border border-slate-200">
+          <h3 className="text-2xl font-bold text-center text-slate-900 mb-8">Our Combined Experience</h3>
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+            <div>
+              <div className="text-3xl font-bold text-slate-900 mb-2">15+</div>
+              <div className="text-slate-700 font-medium">Years Combined Experience</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-slate-900 mb-2">50+</div>
+              <div className="text-slate-700 font-medium">Enterprise Clients Served</div>
+            </div>
+            
+            <div>
+              <div className="text-3xl font-bold text-slate-900 mb-2">100%</div>
+              <div className="text-slate-700 font-medium">Client Satisfaction</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function FinalCTA() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState<"demo" | "automate">("demo");
@@ -1022,7 +1156,7 @@ export function FinalCTA() {
   };
 
   return (
-    <section className="relative py-32 min-h-screen bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400 overflow-hidden">
+    <section className="relative py-32 bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400 overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-slate-200/0 via-slate-300/30 to-slate-400/60" />
@@ -1142,30 +1276,14 @@ export function FinalCTA() {
           </motion.button>
         </div>
 
-        {/* Trust Indicators */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
-          className="mt-16 text-center"
-        >
-          <p className="text-gray-400 text-sm mb-4">Trusted by 150+ companies worldwide</p>
-          <div className="flex justify-center items-center gap-8 opacity-60">
-            <div className="text-2xl">🔒</div>
-            <div className="text-2xl">🛡️</div>
-            <div className="text-2xl">✅</div>
-            <div className="text-2xl">🚀</div>
-          </div>
-        </motion.div>
       </div>
 
-      {/* Contact Modal */}
-      <ContactModal 
+      {/* Contact Modal - Disabled for now */}
+      {/* <ContactModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
         type={modalType} 
-      />
+      /> */}
     </section>
   );
 }

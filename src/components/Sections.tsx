@@ -1,9 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
-import Image from "next/image";
 
 export function TimeSection() {
   return (
@@ -619,7 +617,7 @@ export function Pricing() {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
-          {plans.map((plan, _i) => (
+          {plans.map((plan) => (
             <div
               key={plan.name}
               className={`relative group ${plan.popular ? 'lg:-mt-4' : ''}`}
@@ -1041,7 +1039,7 @@ export function Team() {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          {teamMembers.map((member, _i) => (
+          {teamMembers.map((member) => (
             <div
               key={member.name}
               className="bg-white rounded-2xl p-8 shadow-xl border border-slate-200 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
@@ -1150,8 +1148,8 @@ export function FinalCTA() {
   ];
 
   const handleOpenModal = (type: "demo" | "automate") => {
-    setModalType(type);
-    setIsModalOpen(true);
+    // Modal functionality disabled for now
+    console.log(`Opening ${type} modal`);
   };
 
   return (

@@ -13,7 +13,7 @@ export const runtime = "nodejs";
 //   return input?.toString().trim().slice(0, 1000) ?? "";
 // }
 
-export async function POST(req: Request) {
+export async function POST(_req: Request) {
   // Email functionality disabled for now
   return Response.json({ error: "Contact form temporarily disabled" }, { status: 503 });
 }

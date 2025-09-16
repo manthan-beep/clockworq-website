@@ -13,7 +13,6 @@ interface Message {
 export default function AkiraChatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [showIntroPopup, setShowIntroPopup] = useState(false);
-  const [hasSeenIntro, setHasSeenIntro] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
@@ -49,20 +48,16 @@ export default function AkiraChatbot() {
         setShowIntroPopup(true);
       }, 3000); // Show after 3 seconds
       return () => clearTimeout(timer);
-    } else {
-      setHasSeenIntro(true);
-    }
+        }
   }, []);
 
   const handleIntroClose = () => {
     setShowIntroPopup(false);
-    setHasSeenIntro(true);
     localStorage.setItem('akira-intro-seen', 'true');
   };
 
   const handleIntroChat = () => {
     setShowIntroPopup(false);
-    setHasSeenIntro(true);
     setIsOpen(true);
     localStorage.setItem('akira-intro-seen', 'true');
   };
@@ -208,7 +203,7 @@ export default function AkiraChatbot() {
                     <span className="font-bold text-lg">A</span>
                   </motion.div>
                   <div>
-                    <h3 className="text-xl font-bold">Hi there! I'm Akira</h3>
+                    <h3 className="text-xl font-bold">Hi there! I&apos;m Akira</h3>
                     <p className="text-teal-100 text-sm">Your AI assistant at Clockworq.ai</p>
                   </div>
                 </div>
@@ -218,7 +213,7 @@ export default function AkiraChatbot() {
               <div className="p-6">
                 <div className="space-y-4">
                   <p className="text-slate-700 leading-relaxed">
-                    I'm here to help you discover how Clockworq.ai can automate your business workflows and save you time!
+                    I&apos;m here to help you discover how Clockworq.ai can automate your business workflows and save you time!
                   </p>
                   
                   <div className="bg-slate-50 rounded-2xl p-4">

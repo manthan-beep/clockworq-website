@@ -1,5 +1,5 @@
 import Hero from "@/components/Hero";
-import { TimeSection, Why, How, UseCases, Pricing, SocialProof, Team, FinalCTA } from "@/components/Sections";
+import { TimeSection, Why, How, UseCases, Pricing, Team, FinalCTA } from "@/components/Sections";
 import StackingSection from "@/components/StackingSection";
 import ScrollProgress from "@/components/ScrollProgress";
 

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
-import ContactModal from "./ContactModal";
+import Image from "next/image";
 
 export function TimeSection() {
   return (
@@ -619,7 +619,7 @@ export function Pricing() {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
-          {plans.map((plan, i) => (
+          {plans.map((plan, _i) => (
             <div
               key={plan.name}
               className={`relative group ${plan.popular ? 'lg:-mt-4' : ''}`}
@@ -1041,7 +1041,7 @@ export function Team() {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          {teamMembers.map((member, i) => (
+          {teamMembers.map((member, _i) => (
             <div
               key={member.name}
               className="bg-white rounded-2xl p-8 shadow-xl border border-slate-200 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
@@ -1049,6 +1049,7 @@ export function Team() {
               {/* Profile Image */}
               <div className={`text-center ${member.role === 'COO' ? 'mb-4' : 'mb-6'}`}>
                 <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4 border-4 border-slate-200 shadow-lg">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img 
                     src={member.image} 
                     alt={member.name}
@@ -1132,8 +1133,6 @@ export function Team() {
 }
 
 export function FinalCTA() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalType, setModalType] = useState<"demo" | "automate">("demo");
 
   const ctaMetrics = [
     { label: "Free Consultation", value: "30 min" },

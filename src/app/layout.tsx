@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LoadingAnimation from "@/components/LoadingAnimation";
+import AkiraChatbot from "@/components/AkiraChatbot";
 
 const displayFont = Poppins({
   variable: "--font-display",
@@ -62,6 +63,7 @@ export default function RootLayout({
         <Navbar />
         <div className="pt-20">{children}</div>
         <Footer />
+        <AkiraChatbot />
       </body>
     </html>
   );

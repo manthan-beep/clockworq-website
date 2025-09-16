@@ -106,3 +106,33 @@ html:focus-within {
 .stacking-section > * {
   width: 100%;
 }
+
+/* Ensure chatbot is always visible above all content */
+.akira-chatbot {
+  position: fixed !important;
+  z-index: 10000 !important;
+  isolation: isolate;
+}
+
+/* Custom scrollbar for chatbot */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

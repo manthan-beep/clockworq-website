@@ -16,7 +16,6 @@
     "classnames": "^2.5.1",
     "framer-motion": "^12.23.12",
     "gsap": "^3.13.0",
-    "@sendgrid/mail": "^8.1.0",
     "next": "15.5.2",
     "react": "19.1.0",
     "react-countup": "^6.5.3",

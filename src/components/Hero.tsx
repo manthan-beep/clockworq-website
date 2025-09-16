@@ -13,7 +13,7 @@ export default function Hero() {
     const tryPlay = async () => {
       try {
         await v.play();
-      } catch (_error) {
+      } catch {
         v.muted = true;
         await v.play();
       }

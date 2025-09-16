@@ -239,7 +239,7 @@ export default function AkiraChatbot() {
                   </div>
 
                   <p className="text-sm text-slate-600">
-                    Click "Start Chatting" to begin, or find me anytime using the chat button in the bottom-right corner.
+                    Click &quot;Start Chatting&quot; to begin, or find me anytime using the chat button in the bottom-right corner.
                   </p>
                 </div>
 

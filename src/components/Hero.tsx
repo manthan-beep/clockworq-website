@@ -91,30 +91,6 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
-        {/* Clockwork logo/brand */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="mb-8"
-        >
-          <div className="relative">
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-              className="w-16 h-16 mx-auto mb-4"
-            >
-              <svg viewBox="0 0 100 100" className="w-full h-full text-slate-300">
-                <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="2"/>
-                <circle cx="50" cy="50" r="8" fill="currentColor"/>
-                <path d="M50 10 L50 20 M50 80 L50 90 M10 50 L20 50 M80 50 L90 50" stroke="currentColor" strokeWidth="2"/>
-                <path d="M25 25 L30 30 M70 25 L65 30 M25 75 L30 70 M70 75 L65 70" stroke="currentColor" strokeWidth="1.5"/>
-                <path d="M35 35 L40 40 M60 35 L55 40 M35 65 L40 60 M60 65 L55 60" stroke="currentColor" strokeWidth="1"/>
-              </svg>
-            </motion.div>
-            <div className="text-slate-400 text-sm font-medium tracking-widest uppercase">Clockworq.ai</div>
-          </div>
-        </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}

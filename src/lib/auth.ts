@@ -28,7 +28,7 @@ export const generateToken = (payload: Omit<JWTPayload, 'iat' | 'exp'>): string 
 export const verifyToken = (token: string): JWTPayload | null => {
   try {
     return jwt.verify(token, JWT_SECRET) as JWTPayload;
-  } catch (error) {
+  } catch {
     return null;
   }
 };

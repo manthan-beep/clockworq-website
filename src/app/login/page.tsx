@@ -66,7 +66,7 @@ export default function LoginPage() {
           setError(result.error || 'Login failed');
         }
       }
-    } catch (error) {
+    } catch {
       setError('An unexpected error occurred');
     } finally {
       setIsSubmitting(false);

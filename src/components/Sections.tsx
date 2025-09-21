@@ -500,29 +500,6 @@ export function UseCases() {
           ))}
         </div>
 
-        {/* Industry Statistics */}
-        <div className="bg-slate-900/50 backdrop-blur-sm rounded-3xl p-12 shadow-xl border border-slate-700/50">
-          <h3 className="text-3xl font-bold text-center text-white mb-12">
-            Industry Impact
-          </h3>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {industryStats.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="text-center"
-              >
-                <div className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400 mb-2">
-                  <CountUp end={stat.value} duration={2.5} suffix={stat.suffix} enableScrollSpy />
-                </div>
-                <p className="text-slate-300 font-medium">{stat.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );
@@ -1004,7 +981,7 @@ export function Team() {
     {
       name: "Aslam Basheer",
       role: "CEO & Founder",
-      bio: "Visionary leader with 10+ years in  enterprise technology. Former executive at leading tech companies, driving innovation in automation and workflow optimization.",
+      bio: "Aslam is a visionary entrepreneur and the founder of Rocktfuel, a marketing and creative agency that helps brands scale through innovative strategies and impactful storytelling. His experience spans brand building, strategic marketing, and business development across multiple industries. With a background in filmmaking, Aslam brings a strong creative perspective to his ventures, blending artistic vision with business strategy. This unique approach has enabled him to launch and grow diverse businesses, driving meaningful engagement and long-term brand growth.",
       image: "/images/CEO.jpg",
       expertise: ["AI Strategy", "Product Vision", "Enterprise Sales"],
       linkedin: "https://www.linkedin.com/in/aslambasheer1/"
@@ -1012,7 +989,7 @@ export function Team() {
     {
       name: "Farnaz",
       role: "COO",
-      bio: "Operations excellence expert with 8+ years scaling high-growth tech companies. Specializes in building efficient systems and managing complex operations for AI-driven organizations.",
+      bio: "Farnaz is an accomplished operations leader with over a decade of experience scaling high-growth companies and optimizing performance across diverse industries. As the COO of Rocktfuel, she has built robust systems and managed complex operations for leading brands, including Tissot, Aldo South East Asia, The Better India, Aukera Diamonds, and Deccan Herald. With deep expertise in AI-driven business transformation, Farnaz specializes in designing scalable operational frameworks that leverage data and automation to drive sustainable growth. She is now channeling her experience into building an AI company focused on empowering organizations to achieve efficiency, agility, and innovation through intelligent technology solutions.",
       image: "/images/COO.jpg",
       expertise: ["Operations", "Team Building", "Process Optimization"],
       linkedin: "https://www.linkedin.com/in/umme-farnaz-37a35662/"

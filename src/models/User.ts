@@ -82,7 +82,7 @@ UserSchema.virtual('fullName').get(function() {
 // Ensure virtual fields are serialized
 UserSchema.set('toJSON', {
   virtuals: true,
-  transform: function(doc, ret) {
+  transform: function(doc, ret: any) {
     delete ret.password;
     delete ret.__v;
     return ret;
@@ -92,7 +92,7 @@ UserSchema.set('toJSON', {
 // Ensure virtual fields are serialized
 UserSchema.set('toObject', {
   virtuals: true,
-  transform: function(doc, ret) {
+  transform: function(doc, ret: any) {
     delete ret.password;
     delete ret.__v;
     return ret;

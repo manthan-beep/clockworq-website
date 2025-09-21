@@ -81,37 +81,38 @@ export function Why() {
       icon: "🎯", 
       title: "Smart Lead Discovery", 
       desc: "AI finds and qualifies prospects 24/7 with precision targeting.",
-      color: "from-slate-400 to-slate-500"
+      color: "from-teal-400 to-cyan-500"
     },
     { 
       icon: "🔍", 
       title: "Data Enrichment", 
       desc: "Automatically enrich leads with contact info, company data, and intent signals.",
-      color: "from-slate-500 to-slate-600"
+      color: "from-cyan-400 to-blue-500"
     },
     { 
       icon: "📧", 
       title: "Automated Outreach", 
       desc: "Personalized email sequences that convert at 3x higher rates.",
-      color: "from-slate-600 to-slate-700"
+      color: "from-blue-400 to-indigo-500"
     },
     { 
       icon: "📊", 
       title: "Pipeline Management", 
       desc: "Track, nurture, and convert leads with intelligent CRM automation.",
-      color: "from-slate-700 to-slate-800"
+      color: "from-indigo-400 to-purple-500"
     },
   ];
   
   return (
-    <section className="relative overflow-hidden py-16 min-h-screen bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400">
-      {/* Background image with dark overlay */}
+    <section className="relative overflow-hidden py-16 min-h-screen bg-black">
+      {/* Background pattern */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div
-          className="absolute inset-0 bg-center bg-cover bg-fixed opacity-20"
-          style={{ backgroundImage: "url('/images/why.png')" }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-200/80 via-slate-300/70 to-slate-400/60" />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-black to-slate-800" />
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)`,
+          backgroundSize: '20px 20px'
+        }} />
       </div>
       <div className="mx-auto max-w-7xl px-6 py-8">
         {/* Hero Text */}
@@ -122,17 +123,17 @@ export function Why() {
             viewport={{ once: true }}
             className="mb-8"
           >
-            <span className="inline-block px-4 py-2 bg-slate-600/20 text-slate-700 rounded-full text-sm font-medium mb-6 border border-slate-600/30">
+            <span className="inline-block px-4 py-2 bg-teal-500/20 text-teal-300 rounded-full text-sm font-medium mb-6 border border-teal-500/30">
               Why Clockworq.ai?
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-4 leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 leading-tight">
               Because lead generation should be{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 via-slate-700 to-slate-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-400 to-teal-400">
                 automated
               </span>
               , not manual.
             </h2>
-            <p className="text-lg md:text-xl text-slate-700 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
               Let AI agents find, enrich, and nurture leads while your sales team closes deals.
             </p>
           </motion.div>
@@ -146,15 +147,15 @@ export function Why() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6 }}
-            className="bg-white rounded-3xl p-8 border border-slate-200 shadow-md"
+            className="bg-slate-900/50 backdrop-blur-sm rounded-3xl p-8 border border-slate-700/50 shadow-2xl"
           >
-            <h3 className="text-xl md:text-2xl font-bold text-slate-900">AI Agents that ship outcomes</h3>
-            <p className="mt-2 text-slate-700 text-sm md:text-base">Clockworq agents orchestrate tools, APIs and data to deliver measurable business results.</p>
-            <ul className="mt-4 space-y-2 text-slate-700 text-sm md:text-base">
-              <li className="flex gap-3"><span className="text-slate-600">✓</span> Marketing reports, lead scoring, client dashboards</li>
-              <li className="flex gap-3"><span className="text-slate-600">✓</span> HR + ops workflows, document processing, approvals</li>
-              <li className="flex gap-3"><span className="text-slate-600">✓</span> Support bots, feedback analysis, DevOps automations</li>
-              <li className="flex gap-3"><span className="text-slate-600">✓</span> Hybrid model routing to optimize speed and cost</li>
+            <h3 className="text-xl md:text-2xl font-bold text-white">AI Agents that ship outcomes</h3>
+            <p className="mt-2 text-slate-300 text-sm md:text-base">Clockworq agents orchestrate tools, APIs and data to deliver measurable business results.</p>
+            <ul className="mt-4 space-y-2 text-slate-300 text-sm md:text-base">
+              <li className="flex gap-3"><span className="text-teal-400">✓</span> Marketing reports, lead scoring, client dashboards</li>
+              <li className="flex gap-3"><span className="text-teal-400">✓</span> HR + ops workflows, document processing, approvals</li>
+              <li className="flex gap-3"><span className="text-teal-400">✓</span> Support bots, feedback analysis, DevOps automations</li>
+              <li className="flex gap-3"><span className="text-teal-400">✓</span> Hybrid model routing to optimize speed and cost</li>
             </ul>
           </motion.div>
 
@@ -164,10 +165,10 @@ export function Why() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="bg-white rounded-3xl p-8 border border-slate-200 shadow-md"
+            className="bg-slate-900/50 backdrop-blur-sm rounded-3xl p-8 border border-slate-700/50 shadow-2xl"
           >
-            <h3 className="text-xl md:text-2xl font-bold text-slate-900">Built on n8n — connect anything</h3>
-            <p className="mt-2 text-slate-700 text-sm md:text-base">Native n8n pipelines let our agents plug into your existing stack in minutes.</p>
+            <h3 className="text-xl md:text-2xl font-bold text-white">Built on n8n — connect anything</h3>
+            <p className="mt-2 text-slate-300 text-sm md:text-base">Native n8n pipelines let our agents plug into your existing stack in minutes.</p>
             <div className="mt-6 grid sm:grid-cols-2 gap-4">
               {[
                 'Slack • Gmail • HubSpot • Notion',
@@ -175,7 +176,7 @@ export function Why() {
                 'PostgreSQL • MySQL • BigQuery',
                 'Webhooks • REST • GraphQL APIs',
               ].map((item) => (
-                <div key={item} className="rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-700">{item}</div>
+                <div key={item} className="rounded-xl border border-slate-600/50 bg-slate-800/50 p-4 text-sm text-slate-300">{item}</div>
               ))}
             </div>
             <p className="mt-4 text-sm text-slate-600">Bring your own keys. Secure by design. Versioned flows.</p>
@@ -194,9 +195,9 @@ export function Why() {
               className="group relative"
             >
               {/* Card */}
-              <div className="relative bg-white/20 backdrop-blur rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-300/30 group-hover:border-slate-400/40">
+              <div className="relative bg-slate-900/40 backdrop-blur-sm rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-slate-700/50 group-hover:border-slate-600/70">
                 {/* Gradient Background Effect */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${f.color} opacity-0 group-hover:opacity-10 rounded-3xl transition-opacity duration-500`} />
+                <div className={`absolute inset-0 bg-gradient-to-br ${f.color} opacity-0 group-hover:opacity-20 rounded-3xl transition-opacity duration-500`} />
                 
                 {/* Icon */}
                 <div className="relative mb-5">
@@ -207,10 +208,10 @@ export function Why() {
                 
                 {/* Content */}
                 <div className="relative text-center">
-                  <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-slate-800 transition-colors">
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-slate-200 transition-colors">
                     {f.title}
                   </h3>
-                  <p className="text-slate-700 leading-relaxed text-base">
+                  <p className="text-slate-300 leading-relaxed text-base">
                     {f.desc}
                   </p>
                 </div>
@@ -224,21 +225,21 @@ export function Why() {
 
         {/* Metrics */}
         <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          <div className="text-center bg-white/20 backdrop-blur rounded-2xl p-6 border border-slate-300/30">
-            <div className="text-3xl md:text-4xl font-extrabold text-slate-900"><CountUp end={250} duration={1.2} />+</div>
-            <p className="mt-2 text-slate-700">Workflows automated</p>
+          <div className="text-center bg-slate-900/40 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 shadow-xl">
+            <div className="text-3xl md:text-4xl font-extrabold text-white"><CountUp end={250} duration={1.2} />+</div>
+            <p className="mt-2 text-slate-300">Workflows automated</p>
           </div>
-          <div className="text-center bg-white/20 backdrop-blur rounded-2xl p-6 border border-slate-300/30">
-            <div className="text-3xl md:text-4xl font-extrabold text-slate-900"><CountUp end={70} duration={1.2} />%</div>
-            <p className="mt-2 text-slate-700">Avg. time saved per team</p>
+          <div className="text-center bg-slate-900/40 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 shadow-xl">
+            <div className="text-3xl md:text-4xl font-extrabold text-white"><CountUp end={70} duration={1.2} />%</div>
+            <p className="mt-2 text-slate-300">Avg. time saved per team</p>
           </div>
-          <div className="text-center bg-white/20 backdrop-blur rounded-2xl p-6 border border-slate-300/30">
-            <div className="text-3xl md:text-4xl font-extrabold text-slate-900"><CountUp end={120} duration={1.2} />+</div>
-            <p className="mt-2 text-slate-700">Connectors & integrations</p>
+          <div className="text-center bg-slate-900/40 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 shadow-xl">
+            <div className="text-3xl md:text-4xl font-extrabold text-white"><CountUp end={120} duration={1.2} />+</div>
+            <p className="mt-2 text-slate-300">Connectors & integrations</p>
           </div>
-          <div className="text-center bg-white/20 backdrop-blur rounded-2xl p-6 border border-slate-300/30">
-            <div className="text-3xl md:text-4xl font-extrabold text-slate-900">99.<CountUp end={9} duration={1.2} />%</div>
-            <p className="mt-2 text-slate-700">Agent reliability & uptime</p>
+          <div className="text-center bg-slate-900/40 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 shadow-xl">
+            <div className="text-3xl md:text-4xl font-extrabold text-white">99.<CountUp end={9} duration={1.2} />%</div>
+            <p className="mt-2 text-slate-300">Agent reliability & uptime</p>
           </div>
         </div>
 
@@ -250,14 +251,14 @@ export function Why() {
           transition={{ delay: 0.8 }}
           className="text-center mt-8"
         >
-          <div className="inline-flex items-center gap-4 bg-white/20 backdrop-blur rounded-2xl px-8 py-4 shadow-lg border border-slate-300/30">
-            <div className="w-3 h-3 bg-slate-600 rounded-full animate-pulse" />
-            <span className="text-slate-700 font-medium">
+          <div className="inline-flex items-center gap-4 bg-slate-900/50 backdrop-blur-sm rounded-2xl px-8 py-4 shadow-xl border border-slate-700/50">
+            <div className="w-3 h-3 bg-teal-400 rounded-full animate-pulse" />
+            <span className="text-slate-300 font-medium">
               Ready to automate your workflows?
             </span>
             <a 
               href="#cta" 
-              className="px-6 py-2 bg-gradient-to-r from-slate-600 to-slate-700 text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
+              className="px-6 py-2 bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-xl font-semibold hover:from-teal-600 hover:to-cyan-600 hover:shadow-lg transition-all duration-300"
             >
               Get Started
             </a>
@@ -308,12 +309,12 @@ export function How() {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400 relative overflow-hidden">
+    <section className="py-24 bg-black relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-slate-300 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-slate-400 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 w-24 h-24 bg-slate-500 rounded-full blur-2xl"></div>
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-teal-500 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-cyan-500 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 w-24 h-24 bg-blue-500 rounded-full blur-2xl"></div>
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4">
@@ -322,16 +323,16 @@ export function How() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-4"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4"
           >
-            How It <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-slate-700">Works</span>
+            How It <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">Works</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-lg md:text-xl text-slate-700 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed"
           >
             A proven 4-step process that transforms your lead generation from manual prospecting to AI-powered automation.
           </motion.p>
@@ -350,22 +351,22 @@ export function How() {
             >
               {/* Connection Line */}
               {i < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-16 left-full w-full h-0.5 bg-gradient-to-r from-blue-200 to-purple-200 transform translate-x-4"></div>
+                <div className="hidden lg:block absolute top-16 left-full w-full h-0.5 bg-gradient-to-r from-teal-400 to-cyan-400 transform translate-x-4"></div>
               )}
               
-              <div className="bg-white rounded-3xl p-8 shadow-xl border border-slate-200 hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-2 h-full flex flex-col">
+              <div className="bg-slate-900/50 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-slate-700/50 hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-2 h-full flex flex-col">
                 <div className="flex items-center justify-between mb-4">
                   <div className="text-4xl">{step.icon}</div>
-                  <div className="w-10 h-10 bg-gradient-to-r from-slate-600 to-slate-700 text-white rounded-full flex items-center justify-center font-bold text-base">
+                  <div className="w-10 h-10 bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-full flex items-center justify-center font-bold text-base">
                     {i + 1}
                   </div>
                 </div>
                 <div className="flex-1 flex flex-col">
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">{step.title}</h3>
-                  <p className="text-slate-700 leading-relaxed mb-3 text-sm md:text-base flex-1">{step.desc}</p>
-                  <p className="text-sm text-slate-600 mb-4">{step.details}</p>
+                  <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
+                  <p className="text-slate-300 leading-relaxed mb-3 text-sm md:text-base flex-1">{step.desc}</p>
+                  <p className="text-sm text-slate-400 mb-4">{step.details}</p>
                   <div className="mt-auto">
-                    <div className="inline-block px-3 py-1 bg-slate-200 text-slate-700 rounded-full text-sm font-medium border border-slate-300">
+                    <div className="inline-block px-3 py-1 bg-slate-800/50 text-teal-300 rounded-full text-sm font-medium border border-slate-600/50">
                       {step.metrics}
                     </div>
                   </div>
@@ -376,8 +377,8 @@ export function How() {
         </div>
 
         {/* Process Metrics */}
-        <div className="bg-white rounded-3xl p-12 shadow-xl border border-slate-200">
-          <h3 className="text-3xl font-bold text-center text-slate-900 mb-12">
+        <div className="bg-slate-900/50 backdrop-blur-sm rounded-3xl p-12 shadow-xl border border-slate-700/50">
+          <h3 className="text-3xl font-bold text-center text-white mb-12">
             Proven Results
           </h3>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -390,10 +391,10 @@ export function How() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="text-center"
               >
-                <div className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-slate-700 mb-2">
+                <div className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400 mb-2">
                   <CountUp end={metric.value} duration={2.5} suffix={metric.suffix} enableScrollSpy />
                 </div>
-                <p className="text-slate-700 font-medium">{metric.label}</p>
+                <p className="text-slate-300 font-medium">{metric.label}</p>
               </motion.div>
             ))}
           </div>
@@ -439,11 +440,11 @@ export function UseCases() {
   ];
 
   return (
-    <section className="py-32 bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400 relative overflow-hidden">
+    <section className="py-32 bg-black relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-32 right-20 w-64 h-64 bg-slate-300 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-32 left-20 w-48 h-48 bg-slate-400 rounded-full blur-3xl"></div>
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-32 right-20 w-64 h-64 bg-teal-500 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-32 left-20 w-48 h-48 bg-cyan-500 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4">
@@ -452,16 +453,16 @@ export function UseCases() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-bold text-slate-900 mb-6"
+            className="text-4xl md:text-6xl font-bold text-white mb-6"
           >
-            If you need <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-slate-700">leads</span>, Clockworq can generate them.
+            If you need <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">leads</span>, Clockworq can generate them.
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-xl text-slate-700 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed"
           >
             We turn manual prospecting into automated lead generation across every industry.
           </motion.p>
@@ -477,21 +478,21 @@ export function UseCases() {
               transition={{ duration: 0.6, delay: i * 0.2 }}
               className="group"
             >
-              <div className="bg-white rounded-3xl p-8 shadow-xl border border-slate-200 hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-2 h-full">
+              <div className="bg-slate-900/50 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-slate-700/50 hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-2 h-full">
                 <div className="text-6xl mb-6">{panel.icon}</div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">{panel.title}</h3>
-                <p className="text-slate-700 leading-relaxed mb-6">{panel.desc}</p>
+                <h3 className="text-2xl font-bold text-white mb-4">{panel.title}</h3>
+                <p className="text-slate-300 leading-relaxed mb-6">{panel.desc}</p>
                 
                 <div className="space-y-3 mb-6">
                   {panel.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center gap-3">
                       <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${panel.color}`}></div>
-                      <span className="text-slate-700">{feature}</span>
+                      <span className="text-slate-300">{feature}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className={`inline-block px-4 py-2 bg-slate-200 text-slate-800 rounded-full text-sm font-semibold border border-slate-300`}>
+                <div className={`inline-block px-4 py-2 bg-slate-800/50 text-teal-300 rounded-full text-sm font-semibold border border-slate-600/50`}>
                   {panel.metrics}
                 </div>
               </div>
@@ -500,8 +501,8 @@ export function UseCases() {
         </div>
 
         {/* Industry Statistics */}
-        <div className="bg-white rounded-3xl p-12 shadow-xl border border-slate-200">
-          <h3 className="text-3xl font-bold text-center text-slate-900 mb-12">
+        <div className="bg-slate-900/50 backdrop-blur-sm rounded-3xl p-12 shadow-xl border border-slate-700/50">
+          <h3 className="text-3xl font-bold text-center text-white mb-12">
             Industry Impact
           </h3>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -514,10 +515,10 @@ export function UseCases() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="text-center"
               >
-                <div className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-slate-700 mb-2">
+                <div className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400 mb-2">
                   <CountUp end={stat.value} duration={2.5} suffix={stat.suffix} enableScrollSpy />
                 </div>
-                <p className="text-slate-700 font-medium">{stat.label}</p>
+                <p className="text-slate-300 font-medium">{stat.label}</p>
               </motion.div>
             ))}
           </div>
@@ -594,11 +595,11 @@ export function Pricing() {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400 relative overflow-hidden">
+    <section className="py-16 bg-black relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-slate-300 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-64 h-64 bg-slate-400 rounded-full blur-3xl"></div>
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-20 left-20 w-72 h-72 bg-teal-500 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-64 h-64 bg-cyan-500 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-12">
@@ -607,16 +608,16 @@ export function Pricing() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-bold text-slate-900 mb-6"
+            className="text-4xl md:text-6xl font-bold text-white mb-6"
           >
-            Choose Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Automation</span> Plan
+            Choose Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">Automation</span> Plan
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-xl text-slate-700 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed"
           >
             Start free, scale as you grow. No hidden fees, cancel anytime.
           </motion.p>
@@ -640,49 +641,49 @@ export function Pricing() {
                 </div>
               )}
               
-              <div className={`bg-white rounded-2xl p-6 shadow-xl border transition-all duration-300 group-hover:-translate-y-1 h-full ${
+              <div className={`bg-slate-900/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl border transition-all duration-300 group-hover:-translate-y-1 h-full ${
                 plan.popular 
-                  ? 'border-slate-300 shadow-slate-300/40' 
-                  : 'border-slate-200 hover:border-slate-300'
+                  ? 'border-slate-600/70 shadow-slate-600/40' 
+                  : 'border-slate-700/50 hover:border-slate-600/70'
               }`}>
                 <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-2">{plan.name}</h3>
-                  <p className="text-slate-700 text-sm mb-4">{plan.description}</p>
+                  <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
+                  <p className="text-slate-300 text-sm mb-4">{plan.description}</p>
                   {plan.price ? (
                     <div className="flex items-baseline justify-center gap-1">
-                      <span className="text-2xl font-bold text-slate-700">$</span>
-                      <span className="text-4xl font-extrabold text-slate-900">
+                      <span className="text-2xl font-bold text-slate-300">$</span>
+                      <span className="text-4xl font-extrabold text-white">
                         <CountUp end={plan.price} duration={1.5} />
                       </span>
-                      <span className="text-lg text-slate-700">/mo</span>
+                      <span className="text-lg text-slate-300">/mo</span>
                     </div>
                   ) : (
-                    <div className="text-2xl font-bold text-slate-900">Custom</div>
+                    <div className="text-2xl font-bold text-white">Custom</div>
                   )}
                 </div>
 
                 <ul className="space-y-3 mb-6">
                   {plan.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <div className={`w-4 h-4 rounded-full bg-slate-400 flex items-center justify-center flex-shrink-0 mt-1`}>
+                      <div className={`w-4 h-4 rounded-full bg-teal-500 flex items-center justify-center flex-shrink-0 mt-1`}>
                         <span className="text-white text-[10px] leading-none">✓</span>
                       </div>
-                      <span className="text-slate-700 text-sm">{feature}</span>
+                      <span className="text-slate-300 text-sm">{feature}</span>
                     </li>
                   ))}
                 </ul>
 
-                <div className="mb-6 p-3 bg-slate-100 rounded-xl border border-slate-200">
-                  <p className="text-xs text-slate-600 font-medium">Best for:</p>
-                  <p className="text-xs text-slate-700 mt-1">{plan.bestFor}</p>
+                <div className="mb-6 p-3 bg-slate-800/50 rounded-xl border border-slate-600/50">
+                  <p className="text-xs text-slate-400 font-medium">Best for:</p>
+                  <p className="text-xs text-slate-300 mt-1">{plan.bestFor}</p>
                 </div>
 
                 <a 
                   href="#cta" 
                   className={`w-full inline-flex justify-center items-center rounded-xl px-4 py-3 font-semibold text-sm transition-all duration-300 ${
                     plan.popular
-                      ? 'bg-slate-900 text-white hover:bg-slate-800 shadow-lg hover:shadow-xl'
-                      : 'bg-slate-800 text-white hover:bg-slate-700 border border-slate-700'
+                      ? 'bg-gradient-to-r from-teal-500 to-cyan-500 text-white hover:from-teal-600 hover:to-cyan-600 shadow-lg hover:shadow-xl'
+                      : 'bg-slate-700 text-white hover:bg-slate-600 border border-slate-600'
                   }`}
                 >
                   {plan.enterprise ? 'Contact Sales' : 'Get Started'}
@@ -693,8 +694,8 @@ export function Pricing() {
         </div>
 
         {/* Pricing Metrics */}
-        <div className="bg-white rounded-2xl p-8 shadow-xl border border-slate-200 mb-8">
-          <h3 className="text-2xl font-bold text-center text-slate-900 mb-8">
+        <div className="bg-slate-900/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-slate-700/50 mb-8">
+          <h3 className="text-2xl font-bold text-center text-white mb-8">
             Proven Results
           </h3>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
@@ -707,10 +708,10 @@ export function Pricing() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="text-center"
               >
-                <div className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-slate-700 mb-2">
+                <div className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400 mb-2">
                   <CountUp end={metric.value} duration={2.5} suffix={metric.suffix} enableScrollSpy />
                 </div>
-                <p className="text-slate-700 font-medium text-sm">{metric.label}</p>
+                <p className="text-slate-300 font-medium text-sm">{metric.label}</p>
               </motion.div>
             ))}
           </div>
@@ -718,24 +719,24 @@ export function Pricing() {
 
         {/* Add-ons and CTA */}
         <div className="text-center">
-          <div className="bg-white rounded-2xl p-8 mb-8 border border-slate-200">
-            <h4 className="text-xl font-semibold text-slate-900 mb-4">Add-ons & Services</h4>
-            <div className="grid md:grid-cols-3 gap-6 text-sm text-slate-700">
+          <div className="bg-slate-900/50 backdrop-blur-sm rounded-2xl p-8 mb-8 border border-slate-700/50">
+            <h4 className="text-xl font-semibold text-white mb-4">Add-ons & Services</h4>
+            <div className="grid md:grid-cols-3 gap-6 text-sm text-slate-300">
               <div>
-                <strong>Extra tokens:</strong> $50 per 250k tokens
+                <strong className="text-teal-400">Extra tokens:</strong> $50 per 250k tokens
               </div>
               <div>
-                <strong>Custom integrations:</strong> $500–$5,000 (one-time)
+                <strong className="text-teal-400">Custom integrations:</strong> $500–$5,000 (one-time)
               </div>
               <div>
-                <strong>Automation audits:</strong> $1,000 flat
+                <strong className="text-teal-400">Automation audits:</strong> $1,000 flat
               </div>
             </div>
           </div>
           
           <a 
             href="#cta" 
-            className="inline-flex items-center gap-3 rounded-2xl px-8 py-4 bg-slate-900 text-white font-semibold text-lg hover:bg-slate-800 transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center gap-3 rounded-2xl px-8 py-4 bg-gradient-to-r from-teal-500 to-cyan-500 text-white font-semibold text-lg hover:from-teal-600 hover:to-cyan-600 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             Start My Automation Journey
             <span className="text-xl">→</span>

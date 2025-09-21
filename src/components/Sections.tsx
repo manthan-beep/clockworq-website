@@ -223,7 +223,7 @@ export function Why() {
         </div>
 
         {/* Metrics */}
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
           <div className="text-center bg-white/20 backdrop-blur rounded-2xl p-6 border border-slate-300/30">
             <div className="text-3xl md:text-4xl font-extrabold text-slate-900"><CountUp end={250} duration={1.2} />+</div>
             <p className="mt-2 text-slate-700">Workflows automated</p>
@@ -248,7 +248,7 @@ export function Why() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.8 }}
-          className="text-center"
+          className="text-center mt-8"
         >
           <div className="inline-flex items-center gap-4 bg-white/20 backdrop-blur rounded-2xl px-8 py-4 shadow-lg border border-slate-300/30">
             <div className="w-3 h-3 bg-slate-600 rounded-full animate-pulse" />

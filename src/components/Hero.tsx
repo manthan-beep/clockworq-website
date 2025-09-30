@@ -1,10 +1,36 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [currentModelIndex, setCurrentModelIndex] = useState(0);
+  const [showTagline, setShowTagline] = useState(false);
+
+  const models = [
+    "GPT-5",
+    "Claude Sonnet 4", 
+    "Gemini 2.5 Pro",
+    "Qwen Max-3",
+    "Grok 4",
+    "Opus 4"
+  ];
+
+  const tagline = "Agents That Work Like Clockworq";
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (currentModelIndex < models.length - 1) {
+        setCurrentModelIndex(prev => prev + 1);
+      } else {
+        setShowTagline(true);
+        clearInterval(interval);
+      }
+    }, 800); // Change every 0.8 seconds for more rapid selection
+
+    return () => clearInterval(interval);
+  }, [currentModelIndex, models.length]);
 
   useEffect(() => {
     const v = videoRef.current;
@@ -91,21 +117,68 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
+        {/* Animated Text Transition */}
+        <div className="relative mb-8">
+          {/* Cursor Arrow */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.5 }}
+            className="absolute -left-12 top-1/2 -translate-y-1/2"
+          >
+            <motion.div
+              animate={{ 
+                x: [0, 3, 0]
+              }}
+              transition={{ 
+                duration: 0.1, 
+                repeat: Infinity, 
+                repeatDelay: 0.4 
+              }}
+              className="text-cyan-400"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M5 12l5 5 10-10" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </motion.div>
+          </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-          className="text-6xl font-black text-white md:text-8xl lg:text-9xl leading-[1.1] mb-8"
-        >
-          <span className="block">Agents That</span>
-          <span className="block bg-gradient-to-r from-slate-300 via-white to-slate-300 bg-clip-text text-transparent">
-            Work Like
-          </span>
-          <span className="block bg-gradient-to-r from-teal-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient-x">
-            Clockworq
-          </span>
-        </motion.h1>
+          {/* Text Container */}
+          <div className="relative min-h-[120px] flex items-center justify-center">
+            <AnimatePresence mode="wait">
+              {!showTagline ? (
+                <motion.h1
+                  key={currentModelIndex}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.1 }}
+                  className="text-6xl font-black text-white md:text-8xl lg:text-9xl leading-[1.1]"
+                >
+                  <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-teal-400 bg-clip-text text-transparent">
+                    {models[currentModelIndex]}
+                  </span>
+                </motion.h1>
+              ) : (
+                <motion.h1
+                  key="tagline"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.1 }}
+                  className="text-6xl font-black text-white md:text-8xl lg:text-9xl leading-[1.1]"
+                >
+                  <span className="block">Agents That</span>
+                  <span className="block bg-gradient-to-r from-slate-300 via-white to-slate-300 bg-clip-text text-transparent">
+                    Work Like
+                  </span>
+                  <span className="block bg-gradient-to-r from-teal-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient-x">
+                    Clockworq
+                  </span>
+                </motion.h1>
+              )}
+            </AnimatePresence>
+          </div>
+        </div>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}

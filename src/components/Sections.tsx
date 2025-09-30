@@ -997,7 +997,7 @@ export function Team() {
     {
       name: "Manthan Sharma",
       role: "CTO",
-      bio: "Technical architect and AI researcher with deep expertise in machine learning and automation systems. Leads the development of Clockworq's core AI engine and technical infrastructure.",
+      bio: "Technical architect and AI researcher with hands-on expertise across machine learning, automation, and scalable SaaS systems. Previously worked at LeaseWorks as part of the SWAT engineering team, solving critical Salesforce issues under tight deadlines and driving test coverage strategies. Published research on lithium-ion battery state-of-charge estimation and completed internships at Exicom Energy Systems, Greaves Cotton Ltd, and Merck Life Science, gaining experience in embedded systems, data analytics, and product validation. Founder of Clockworq.ai, where he leads the design of the AI core engine, cloud infrastructure, and automation workflows that streamline GTM operations for startups and SMEs. Skilled in Salesforce development, MERN stack engineering, DevOps, and AI model integration, combining academic research depth with industry execution to build resilient, production-grade systems.",
       image: "/images/CTO.jpg",
       expertise: ["AI/ML", "System Architecture", "Technical Leadership"],
       linkedin: "https://www.linkedin.com/in/manthan-sharma-958372213/"
@@ -1005,19 +1005,19 @@ export function Team() {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400 relative overflow-hidden">
+    <section className="py-24 bg-black relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-slate-300 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-64 h-64 bg-slate-400 rounded-full blur-3xl"></div>
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-20 left-20 w-72 h-72 bg-teal-500 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-64 h-64 bg-cyan-500 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6">
-            Meet the <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-slate-700">Team</span>
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            Meet the <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">Team</span>
           </h2>
-          <p className="text-xl text-slate-700 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
             The minds behind Clockworq.ai - combining decades of experience in AI, operations, and enterprise technology.
           </p>
         </div>
@@ -1026,11 +1026,11 @@ export function Team() {
           {teamMembers.map((member) => (
             <div
               key={member.name}
-              className="bg-white rounded-2xl p-8 shadow-xl border border-slate-200 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+              className="bg-slate-900/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-slate-700/50 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
             >
               {/* Profile Image */}
               <div className={`text-center ${member.role === 'COO' ? 'mb-4' : 'mb-6'}`}>
-                <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4 border-4 border-slate-200 shadow-lg">
+                <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4 border-4 border-slate-600/50 shadow-lg">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img 
                     src={member.image} 
@@ -1047,26 +1047,26 @@ export function Team() {
                       target.style.display = 'none';
                       const parent = target.parentElement;
                       if (parent) {
-                        parent.innerHTML = `<div class="w-full h-full bg-gradient-to-r from-slate-100 to-slate-200 rounded-full flex items-center justify-center text-5xl">👤</div>`;
+                        parent.innerHTML = `<div class="w-full h-full bg-gradient-to-r from-slate-700 to-slate-800 rounded-full flex items-center justify-center text-5xl">👤</div>`;
                       }
                     }}
                   />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-1">{member.name}</h3>
-                <p className="text-slate-600 font-semibold">{member.role}</p>
+                <h3 className="text-2xl font-bold text-white mb-1">{member.name}</h3>
+                <p className="text-slate-300 font-semibold">{member.role}</p>
               </div>
 
               {/* Bio */}
-              <p className="text-slate-700 text-sm leading-relaxed mb-6">{member.bio}</p>
+              <p className="text-slate-300 text-sm leading-relaxed mb-6">{member.bio}</p>
 
               {/* Expertise Tags */}
               <div className="mb-6">
-                <h4 className="text-sm font-semibold text-slate-900 mb-3">Expertise:</h4>
+                <h4 className="text-sm font-semibold text-white mb-3">Expertise:</h4>
                 <div className="flex flex-wrap gap-2">
                   {member.expertise.map((skill, skillIndex) => (
                     <span
                       key={skillIndex}
-                      className="px-3 py-1 bg-slate-100 text-slate-700 text-xs font-medium rounded-full"
+                      className="px-3 py-1 bg-slate-800/50 text-teal-300 text-xs font-medium rounded-full border border-slate-600/50"
                     >
                       {skill}
                     </span>
@@ -1079,7 +1079,7 @@ export function Team() {
                 href={member.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 transition-colors text-sm font-medium"
+                className="inline-flex items-center gap-2 text-slate-300 hover:text-white transition-colors text-sm font-medium"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -1091,21 +1091,21 @@ export function Team() {
         </div>
 
         {/* Team Stats */}
-        <div className="mt-16 bg-white rounded-2xl p-8 shadow-xl border border-slate-200">
-          <h3 className="text-2xl font-bold text-center text-slate-900 mb-8">Our Combined Experience</h3>
+        <div className="mt-16 bg-slate-900/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-slate-700/50">
+          <h3 className="text-2xl font-bold text-center text-white mb-8">Our Combined Experience</h3>
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-slate-900 mb-2">15+</div>
-              <div className="text-slate-700 font-medium">Years Combined Experience</div>
+              <div className="text-3xl font-bold text-white mb-2">15+</div>
+              <div className="text-slate-300 font-medium">Years Combined Experience</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-slate-900 mb-2">50+</div>
-              <div className="text-slate-700 font-medium">Enterprise Clients Served</div>
+              <div className="text-3xl font-bold text-white mb-2">50+</div>
+              <div className="text-slate-300 font-medium">Enterprise Clients Served</div>
             </div>
             
             <div>
-              <div className="text-3xl font-bold text-slate-900 mb-2">100%</div>
-              <div className="text-slate-700 font-medium">Client Satisfaction</div>
+              <div className="text-3xl font-bold text-white mb-2">100%</div>
+              <div className="text-slate-300 font-medium">Client Satisfaction</div>
             </div>
           </div>
         </div>
@@ -1137,13 +1137,13 @@ export function FinalCTA() {
   };
 
   return (
-    <section className="relative py-32 bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400 overflow-hidden">
+    <section className="relative py-32 bg-black overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-200/0 via-slate-300/30 to-slate-400/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-slate-900/30 to-black/60" />
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full border border-white/10 animate-spin-slow" />
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[400px] rounded-full border border-blue-500/20 animate-spin-slow" style={{ animationDirection: 'reverse', animationDuration: '20s' }} />
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[200px] w-[200px] rounded-full border border-purple-500/30 animate-spin-slow" style={{ animationDuration: '8s' }} />
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[400px] rounded-full border border-teal-500/20 animate-spin-slow" style={{ animationDirection: 'reverse', animationDuration: '20s' }} />
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[200px] w-[200px] rounded-full border border-cyan-500/30 animate-spin-slow" style={{ animationDuration: '8s' }} />
       </div>
 
       {/* Floating Particles */}
@@ -1151,7 +1151,7 @@ export function FinalCTA() {
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 bg-white/20 rounded-full"
+            className="absolute w-2 h-2 bg-teal-400/30 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -1175,10 +1175,10 @@ export function FinalCTA() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-7xl font-extrabold text-slate-900 mb-8 leading-tight"
+            className="text-4xl md:text-7xl font-extrabold text-white mb-8 leading-tight"
           >
             Stop working like a machine.<br />
-            Let the machines work like <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-slate-700">Clockworq</span>.
+            Let the machines work like <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">Clockworq</span>.
           </motion.h2>
           
           <motion.p 
@@ -1186,7 +1186,7 @@ export function FinalCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-slate-700 max-w-3xl mx-auto leading-relaxed mb-12"
+            className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-12"
           >
             Join hundreds of companies already saving 40+ hours per week with intelligent automation. 
             Your transformation starts with a single conversation.
@@ -1204,15 +1204,15 @@ export function FinalCTA() {
               transition={{ duration: 0.6, delay: i * 0.1 }}
               className="text-center"
             >
-              <div className="text-3xl font-bold text-slate-900 mb-2">{metric.value}</div>
-              <p className="text-slate-700 font-medium">{metric.label}</p>
+              <div className="text-3xl font-bold text-white mb-2">{metric.value}</div>
+              <p className="text-slate-300 font-medium">{metric.label}</p>
             </motion.div>
           ))}
         </div>
 
         {/* Benefits List */}
-        <div className="bg-white rounded-3xl p-8 mb-16 border border-slate-200">
-          <h3 className="text-2xl font-bold text-slate-900 text-center mb-8">What you get:</h3>
+        <div className="bg-slate-900/50 backdrop-blur-sm rounded-3xl p-8 mb-16 border border-slate-700/50">
+          <h3 className="text-2xl font-bold text-white text-center mb-8">What you get:</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {benefits.map((benefit, i) => (
               <motion.div
@@ -1223,8 +1223,8 @@ export function FinalCTA() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="flex items-center gap-3"
               >
-                <div className="w-2 h-2 bg-slate-500 rounded-full flex-shrink-0"></div>
-                <span className="text-slate-700">{benefit}</span>
+                <div className="w-2 h-2 bg-teal-400 rounded-full flex-shrink-0"></div>
+                <span className="text-slate-300">{benefit}</span>
               </motion.div>
             ))}
           </div>
@@ -1250,7 +1250,7 @@ export function FinalCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
-            className="group inline-flex items-center gap-3 rounded-2xl px-8 py-4 bg-slate-900 text-white font-semibold text-lg hover:bg-slate-800 transition-all duration-300 shadow-xl hover:shadow-2xl"
+            className="group inline-flex items-center gap-3 rounded-2xl px-8 py-4 bg-gradient-to-r from-teal-500 to-cyan-500 text-white font-semibold text-lg hover:from-teal-600 hover:to-cyan-600 transition-all duration-300 shadow-xl hover:shadow-2xl"
           >
             <span>Automate My Workflows</span>
             <span className="group-hover:translate-x-1 transition-transform">⚡</span>

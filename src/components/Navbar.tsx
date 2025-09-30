@@ -233,6 +233,13 @@ export default function Navbar() {
                           <div className="text-sm text-slate-400">Signed in as</div>
                           <div className="text-white font-medium">{user.email}</div>
                         </div>
+                        <Link
+                          href="/dashboard"
+                          onClick={() => setUserMenuOpen(false)}
+                          className="block w-full text-left px-4 py-3 text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white rounded-xl transition-colors duration-200 mb-2"
+                        >
+                          Dashboard
+                        </Link>
                         <button
                           onClick={() => {
                             logout();
@@ -426,6 +433,13 @@ export default function Navbar() {
                         <div className="text-slate-400 text-xs">{user.email}</div>
                       </div>
                     </div>
+                    <Link
+                      href="/dashboard"
+                      onClick={() => setOpen(false)}
+                      className="block w-full text-left px-4 py-3 text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white rounded-xl transition-colors duration-200 mb-2"
+                    >
+                      Dashboard
+                    </Link>
                     <button
                       onClick={() => {
                         logout();

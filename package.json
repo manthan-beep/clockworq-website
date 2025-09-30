@@ -17,6 +17,7 @@
     "@types/jsonwebtoken": "^9.0.10",
     "bcryptjs": "^3.0.2",
     "classnames": "^2.5.1",
+    "crypto": "^1.0.1",
     "framer-motion": "^12.23.12",
     "gsap": "^3.13.0",
     "jsonwebtoken": "^9.0.2",

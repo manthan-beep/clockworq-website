@@ -26,9 +26,10 @@ export default function LoginPage() {
   // Redirect if user is already logged in
   useEffect(() => {
     if (user && !isLoading) {
-      router.push('/');
+      router.push('/dashboard');
     }
   }, [user, isLoading, router]);
+
 
   const handlePasswordChange = (value: string) => {
     setPassword(value);
@@ -54,14 +55,14 @@ export default function LoginPage() {
 
         const result = await signup(email, password, firstName, lastName);
         if (result.success) {
-          router.push('/');
+          router.push('/dashboard');
         } else {
           setError(result.error || 'Signup failed');
         }
       } else {
         const result = await login(email, password);
         if (result.success) {
-          router.push('/');
+          router.push('/dashboard');
         } else {
           setError(result.error || 'Login failed');
         }
@@ -72,6 +73,7 @@ export default function LoginPage() {
       setIsSubmitting(false);
     }
   };
+
 
   if (isLoading) {
     return (

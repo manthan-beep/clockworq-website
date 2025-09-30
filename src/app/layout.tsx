@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import LoadingAnimation from "@/components/LoadingAnimation";
-import AkiraChatbot from "@/components/AkiraChatbot";
+import LayoutWrapper from "@/components/LayoutWrapper";
 import { AuthProvider } from "@/contexts/AuthContext";
 
 const displayFont = Poppins({
@@ -61,11 +58,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${displayFont.variable} ${bodyFont.variable} antialiased`}>
         <AuthProvider>
-          <LoadingAnimation />
-          <Navbar />
-          <div className="pt-20">{children}</div>
-          <Footer />
-          <AkiraChatbot />
+          <LayoutWrapper>
+            {children}
+          </LayoutWrapper>
         </AuthProvider>
       </body>
     </html>

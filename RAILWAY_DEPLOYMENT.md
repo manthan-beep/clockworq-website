@@ -4,16 +4,28 @@
 
 Set these environment variables in your Railway project dashboard:
 
-### Required Variables
+### Required Variables (Critical for Login/Signup)
 ```
+# Database Connection (MongoDB Atlas)
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/database?retryWrites=true&w=majority
+
+# JWT Secret for Authentication (generate a strong random string)
+JWT_SECRET=your-very-secure-random-secret-key-at-least-32-characters-long
+
+# Node Environment
+NODE_ENV=production
+
+# Site Configuration
 NEXT_PUBLIC_SITE_URL=https://your-app-name.railway.app
 NEXT_PUBLIC_SITE_NAME=Clockworq.ai
-NODE_ENV=production
 PORT=3000
 ```
 
-### Optional Variables (for future features)
+### Optional Variables
 ```
+# Chatbot (Gemini API)
+GEMINI_API_KEY=your-gemini-api-key
+
 # Analytics
 NEXT_PUBLIC_GA_ID=your-google-analytics-id
 NEXT_PUBLIC_HOTJAR_ID=your-hotjar-id
@@ -24,6 +36,28 @@ SMTP_PORT=587
 SMTP_USER=your-email@clockworq.ai
 SMTP_PASS=your-email-password
 ```
+
+### How to Get MongoDB URI:
+1. Go to [MongoDB Atlas](https://cloud.mongodb.com/)
+2. Create a free cluster (if you haven't already)
+3. Click "Connect" → "Connect your application"
+4. Copy the connection string
+5. Replace `<password>` with your database password
+6. Replace `<database>` with your database name (e.g., `clockworq`)
+
+### How to Generate JWT_SECRET:
+Run this command in terminal:
+```bash
+openssl rand -base64 32
+```
+Or use any random string generator (min 32 characters)
+
+### MongoDB Atlas IP Whitelist:
+⚠️ **CRITICAL**: Railway uses dynamic IPs, so you must:
+1. Go to MongoDB Atlas → Network Access
+2. Click "Add IP Address"
+3. Select "Allow Access from Anywhere" (0.0.0.0/0)
+4. This is safe - your database is still protected by username/password
 
 ## Deployment Steps
 
@@ -70,8 +104,33 @@ SMTP_PASS=your-email-password
 
 ## Troubleshooting
 
-- **Build fails**: Check that all environment variables are set
+### Build Issues
+- **Build fails with TypeScript errors**: Check that all required environment variables are set
 - **App won't start**: Verify PORT variable is set to 3000
+
+### Login/Signup Issues (500 Error)
+- **"Internal Server Error" on signup/login**:
+  1. Check Railway logs for specific error messages
+  2. Verify `MONGODB_URI` is set correctly in Railway
+  3. Verify `JWT_SECRET` is set in Railway
+  4. Check MongoDB Atlas Network Access allows Railway IPs (0.0.0.0/0)
+  5. Verify your MongoDB user has read/write permissions
+  
+### How to Check Railway Logs:
+1. Go to Railway Dashboard → Your Project
+2. Click on your service
+3. Go to "Deployments" tab
+4. Click on the latest deployment
+5. View "Build Logs" and "Deploy Logs"
+6. Look for errors starting with ❌
+
+### Common Error Messages:
+- `❌ MONGODB_URI is not defined!` → Add MONGODB_URI to Railway variables
+- `❌ MongoDB connection failed!` → Check MongoDB Atlas IP whitelist
+- `MongoServerError: Authentication failed` → Check MongoDB username/password
+- `Connection timeout` → Check MongoDB Atlas Network Access settings
+
+### Other Issues
 - **Static assets not loading**: Ensure NEXT_PUBLIC_SITE_URL is correct
 - **Metadata issues**: Check that site URL and name are properly configured
 

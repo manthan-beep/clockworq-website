@@ -106,6 +106,14 @@ export async function POST(request: NextRequest) {
       console.error('- Error name:', error.name);
       console.error('- Error message:', error.message);
       console.error('- Error stack:', error.stack);
+      
+      // Return more specific error in development
+      if (process.env.NODE_ENV === 'development') {
+        return NextResponse.json(
+          { error: 'Internal server error', details: error.message },
+          { status: 500 }
+        );
+      }
     }
     return NextResponse.json(
       { error: 'Internal server error' },

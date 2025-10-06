@@ -1136,7 +1136,7 @@ export function Pricing() {
         >
           <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-white mb-6 text-center">
-              What's Included in All Plans
+              What&apos;s Included in All Plans
             </h3>
             
             <div className="grid md:grid-cols-2 gap-6">
@@ -1682,7 +1682,7 @@ export function FinalCTA() {
             transition={{ delay: 0.2 }}
             className="text-lg text-slate-400 max-w-2xl mx-auto"
           >
-            Tell us about your lead generation challenges and we'll show you how Clockworq can help
+            Tell us about your lead generation challenges and we&apos;ll show you how Clockworq can help
           </motion.p>
         </div>
 
@@ -1702,7 +1702,7 @@ export function FinalCTA() {
                   </svg>
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">Thank You!</h3>
-                <p className="text-slate-400">We'll be in touch within 24 hours to schedule your consultation.</p>
+                <p className="text-slate-400">We&apos;ll be in touch within 24 hours to schedule your consultation.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -1802,7 +1802,7 @@ export function FinalCTA() {
 
                 <div>
                   <label htmlFor="biggestChallenge" className="block text-sm font-medium text-slate-300 mb-2">
-                    What's your biggest lead gen challenge? *
+                    What&apos;s your biggest lead gen challenge? *
                   </label>
                   <select
                     id="biggestChallenge"
@@ -1817,8 +1817,8 @@ export function FinalCTA() {
                     <option value="quality">Poor lead quality</option>
                     <option value="time">Too time-consuming</option>
                     <option value="outreach">Low response rates</option>
-                    <option value="tracking">Can't track ROI</option>
-                    <option value="integration">Tools don't integrate</option>
+                    <option value="tracking">Can&apos;t track ROI</option>
+                    <option value="integration">Tools don&apos;t integrate</option>
                   </select>
                 </div>
 

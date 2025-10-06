@@ -16,7 +16,7 @@ export default function Hero() {
     }, 4000); // Change every 4 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [workflowStages.length]);
 
   const pipelineStages = [
     {
@@ -82,12 +82,13 @@ export default function Hero() {
     { name: "Tom Wilson", company: "Innovation Hub", email: "tom@innovation.com", status: "Hot", score: 88 },
   ];
 
-  const enrichmentData = [
-    { source: "LinkedIn", enriched: 4230, pending: 580, failed: 45 },
-    { source: "Email", enriched: 3890, pending: 340, failed: 28 },
-    { source: "Website", enriched: 2145, pending: 220, failed: 15 },
-    { source: "Database", enriched: 1820, pending: 180, failed: 12 },
-  ];
+  // Enrichment data for future use
+  // const enrichmentData = [
+  //   { source: "LinkedIn", enriched: 4230, pending: 580, failed: 45 },
+  //   { source: "Email", enriched: 3890, pending: 340, failed: 28 },
+  //   { source: "Website", enriched: 2145, pending: 220, failed: 15 },
+  //   { source: "Database", enriched: 1820, pending: 180, failed: 12 },
+  // ];
 
   const analyticsData = [
     { metric: "Total Leads", value: "12,847", change: "+24.8%", trend: "up" },
@@ -489,7 +490,7 @@ export default function Hero() {
                 <div className="font-semibold text-slate-900 mb-3 text-base">Subject: Quick question about your lead gen strategy</div>
                 <p className="text-slate-600 leading-relaxed">
                   Hi Sarah,<br/><br/>
-                  I noticed you're growing your team at TechCorp. I work with similar companies to automate their lead generation process and typically help them double their qualified leads within 60 days.<br/><br/>
+                  I noticed you&apos;re growing your team at TechCorp. I work with similar companies to automate their lead generation process and typically help them double their qualified leads within 60 days.<br/><br/>
                   Would you be open to a quick 15-minute call next week?<br/><br/>
                   <span className="inline-block px-3 py-1 bg-slate-100 text-slate-700 font-semibold text-xs rounded-full mt-2 border border-slate-300">AI-optimized • 98% deliverability</span>
                 </p>
@@ -803,7 +804,7 @@ export default function Hero() {
                   {/* Activity Stats */}
                   <div className="mt-auto bg-slate-100 rounded-lg p-3 border border-slate-200">
                     <div className="text-[9px] font-semibold text-slate-500 uppercase tracking-wider mb-2">
-                      Today's Activity
+                      Today&apos;s Activity
                     </div>
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">

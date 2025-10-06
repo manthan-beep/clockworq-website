@@ -20,7 +20,7 @@ export default function Dashboard() {
 
   // Close dropdown when clicking outside
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = () => {
       if (userMenuOpen) {
         setUserMenuOpen(false);
       }

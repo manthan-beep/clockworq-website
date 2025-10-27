@@ -77,7 +77,7 @@ export default function Hero() {
     { name: "Sarah Johnson", company: "Tech Corp", email: "sarah@techcorp.com", status: "Hot", score: 95 },
     { name: "Mike Peters", company: "StartupXYZ", email: "mike@startupxyz.com", status: "Warm", score: 78 },
     { name: "Emma Davis", company: "Enterprise Inc", email: "emma@enterprise.com", status: "Hot", score: 92 },
-    { name: "John Smith", company: "Growth Co", email: "john@growthco.com", status: "Cold", score: 45 },
+    { name: "Joe Smith", company: "Growth Co", email: "john@growthco.com", status: "Cold", score: 45 },
     { name: "Lisa Anderson", company: "Scale Labs", email: "lisa@scalelabs.com", status: "Warm", score: 81 },
     { name: "Tom Wilson", company: "Innovation Hub", email: "tom@innovation.com", status: "Hot", score: 88 },
   ];

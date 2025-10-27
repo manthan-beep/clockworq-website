@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
+import PlanComparison from "./PlanComparison";
 
 export function TimeSection() {
   const workflowNodes = [
@@ -89,12 +90,12 @@ export function TimeSection() {
             your entire sales pipeline—from lead capture to deal close.
           </motion.p>
         </div>
-
+          
         {/* Workflow Canvas */}
-        <motion.div
+          <motion.div
           initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.3 }}
           className="relative bg-slate-900/50 backdrop-blur-sm rounded-3xl border border-slate-700/50 shadow-2xl p-8 mb-12"
         >
@@ -105,9 +106,9 @@ export function TimeSection() {
                 <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
                 <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
                 <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
-              </div>
+        </div>
               <span className="text-slate-400 text-sm font-medium ml-4">Lead Automation Workflow</span>
-            </div>
+      </div>
             <div className="flex items-center gap-2 text-xs text-slate-500">
               <div className="flex items-center gap-1">
                 <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
@@ -137,8 +138,8 @@ export function TimeSection() {
                 const y1 = fromNode.y;
                 const x2 = toNode.x;
                 const y2 = toNode.y;
-
-                return (
+  
+  return (
                   <g key={i}>
                     <motion.line
                       x1={x1}
@@ -189,11 +190,11 @@ export function TimeSection() {
 
             {/* Workflow Nodes */}
             {workflowNodes.map((node) => (
-              <motion.div
+          <motion.div
                 key={node.id}
                 initial={{ opacity: 0, scale: 0.5, y: 20 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                viewport={{ once: true }}
+            viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: node.delay }}
                 className="absolute"
                 style={{
@@ -218,10 +219,10 @@ export function TimeSection() {
                         </div>
                       </div>
                     </div>
-                  </div>
+        </div>
 
                   {/* Pulse Effect */}
-                  <motion.div
+          <motion.div
                     className={`absolute inset-0 bg-gradient-to-br ${getNodeColor(node.type)} rounded-xl opacity-0 group-hover:opacity-20 transition-opacity`}
                     animate={{
                       scale: [1, 1.15, 1],
@@ -233,7 +234,7 @@ export function TimeSection() {
                       delay: node.delay,
                     }}
                   />
-                </motion.div>
+          </motion.div>
               </motion.div>
             ))}
           </div>
@@ -260,9 +261,9 @@ export function TimeSection() {
         </motion.div>
 
         {/* Second Workflow - Multi-Channel Outreach */}
-        <motion.div
+          <motion.div
           initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.5 }}
           className="relative bg-slate-900/50 backdrop-blur-sm rounded-3xl border border-slate-700/50 shadow-2xl p-8 mb-12"
@@ -274,7 +275,7 @@ export function TimeSection() {
                 <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
                 <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
                 <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
-              </div>
+            </div>
               <span className="text-slate-400 text-sm font-medium ml-4">Multi-Channel Outreach Workflow</span>
             </div>
             <div className="flex items-center gap-2 text-xs text-slate-500">
@@ -285,7 +286,7 @@ export function TimeSection() {
               <span className="mx-2">•</span>
               <span>1,234 runs today</span>
             </div>
-          </div>
+        </div>
 
           {/* Workflow Visualization */}
           <div className="relative h-[500px] w-full">
@@ -362,7 +363,7 @@ export function TimeSection() {
               { id: 7, type: "action", label: "Send LinkedIn", icon: "💼", x: 66, y: 75, delay: 1.6 },
               { id: 8, type: "success", label: "Outreach Sent", icon: "✓", x: 87, y: 50, delay: 2 },
             ].map((node) => (
-              <motion.div
+            <motion.div
                 key={node.id}
                 initial={{ opacity: 0, scale: 0.5, y: 20 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -378,8 +379,8 @@ export function TimeSection() {
               >
                 <motion.div
                   whileHover={{ scale: 1.05 }}
-                  className="group relative"
-                >
+              className="group relative"
+            >
                   <div className={`bg-gradient-to-br ${getNodeColor(node.type)} p-[2px] rounded-xl shadow-lg`}>
                     <div className="bg-slate-900 rounded-xl px-3 py-2.5 w-[150px]">
                       <div className="flex items-center gap-2">
@@ -387,10 +388,10 @@ export function TimeSection() {
                         <div className="flex-1 min-w-0">
                           <div className="text-[9px] text-slate-500 uppercase tracking-wide font-bold mb-0.5">{node.type}</div>
                           <div className="text-xs font-bold text-white truncate">{node.label}</div>
-                        </div>
-                      </div>
-                    </div>
                   </div>
+                </div>
+                </div>
+              </div>
                   <motion.div
                     className={`absolute inset-0 bg-gradient-to-br ${getNodeColor(node.type)} rounded-xl opacity-0 group-hover:opacity-20 transition-opacity`}
                     animate={{
@@ -404,29 +405,29 @@ export function TimeSection() {
                     }}
                   />
                 </motion.div>
-              </motion.div>
-            ))}
-          </div>
+            </motion.div>
+          ))}
+        </div>
 
           {/* Workflow Stats */}
           <div className="grid grid-cols-4 gap-4 mt-8 pt-6 border-t border-slate-700/50">
             <div className="text-center">
               <div className="text-2xl font-bold text-amber-400">1,234</div>
               <div className="text-xs text-slate-500 mt-1">Runs Today</div>
-            </div>
+          </div>
             <div className="text-center">
               <div className="text-2xl font-bold text-pink-400">97%</div>
               <div className="text-xs text-slate-500 mt-1">Success Rate</div>
-            </div>
+          </div>
             <div className="text-center">
               <div className="text-2xl font-bold text-green-400">0.8s</div>
               <div className="text-xs text-slate-500 mt-1">Avg. Runtime</div>
-            </div>
+          </div>
             <div className="text-center">
               <div className="text-2xl font-bold text-purple-400">$24.7k</div>
               <div className="text-xs text-slate-500 mt-1">Revenue Generated</div>
-            </div>
           </div>
+        </div>
         </motion.div>
 
         {/* Features Grid */}
@@ -451,11 +452,11 @@ export function TimeSection() {
               color: "from-teal-500 to-cyan-500"
             },
           ].map((feature, i) => (
-            <motion.div
+        <motion.div
               key={feature.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               className="group relative"
             >
@@ -477,13 +478,13 @@ export function TimeSection() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-center"
         >
-          <a 
-            href="#cta" 
+            <a 
+              href="#cta" 
             className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-500 text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-          >
+            >
             <span>Build Your First Workflow</span>
             <span className="text-xl">→</span>
-          </a>
+            </a>
         </motion.div>
       </div>
     </section>
@@ -492,7 +493,7 @@ export function TimeSection() {
 
 export function Why() {
   const capabilities = [
-    {
+    { 
       category: "Lead Generation",
       icon: "🎯",
       gradient: "from-cyan-500 to-blue-500",
@@ -540,7 +541,7 @@ export function Why() {
       clockworq: "AI finds & enriches leads automatically",
       icon: "🔍",
     },
-    {
+    { 
       traditional: "Generic email blasts with 2-5% open rates",
       clockworq: "Personalized outreach with 40%+ engagement",
       icon: "📧",
@@ -595,7 +596,7 @@ export function Why() {
             </span>
           </motion.h2>
           
-          <motion.p
+          <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -608,9 +609,9 @@ export function Why() {
         </div>
 
         {/* Problem/Solution Comparison */}
-        <motion.div
+            <motion.div
           initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="mb-24"
@@ -640,11 +641,11 @@ export function Why() {
                     <div className="flex items-center gap-3 mb-3">
                       <span className="text-xl opacity-60">{point.icon}</span>
                       <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Before</span>
-                    </div>
+                  </div>
                     <p className="text-slate-400 text-sm leading-relaxed">
                       {point.traditional}
                     </p>
-                  </div>
+                </div>
 
                   {/* Solution Side */}
                   <div className="p-6 bg-slate-800/30">
@@ -655,16 +656,16 @@ export function Why() {
                     <p className="text-white text-sm leading-relaxed font-medium">
                       {point.clockworq}
                     </p>
-                  </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
           {/* Bottom Stats */}
-          <motion.div
+              <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.6 }}
             className="mt-12 max-w-5xl mx-auto"
@@ -697,7 +698,7 @@ export function Why() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
               className="group relative"
             >
               <div className="relative bg-slate-900/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 hover:border-slate-600/70 transition-all shadow-xl hover:shadow-2xl">
@@ -705,7 +706,7 @@ export function Why() {
                 <div className="flex items-center gap-4 mb-6">
                   <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${capability.gradient} flex items-center justify-center text-2xl shadow-lg group-hover:scale-110 transition-transform`}>
                     {capability.icon}
-                  </div>
+                </div>
                   <h3 className="text-xl font-bold text-white">{capability.category}</h3>
                 </div>
 
@@ -725,9 +726,9 @@ export function Why() {
                 {/* Hover gradient overlay */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${capability.gradient} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity pointer-events-none`} />
               </div>
-            </motion.div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </div>
 
         {/* Stats Bar */}
         <motion.div
@@ -741,7 +742,7 @@ export function Why() {
             <div className="text-center">
               <div className="text-4xl font-black bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-2">
                 <CountUp end={3} duration={2} suffix="x" enableScrollSpy />
-              </div>
+        </div>
               <p className="text-slate-400 text-sm">Faster Lead Gen</p>
             </div>
             <div className="text-center">
@@ -883,7 +884,7 @@ export function How() {
                     <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                       <span className="text-2xl font-black text-white">{step.number}</span>
                     </div>
-                  </div>
+                </div>
 
                   {/* Content */}
                   <div className="flex-1">
@@ -959,33 +960,69 @@ export function How() {
 
 
 export function Pricing() {
+  const [showComparison, setShowComparison] = useState(false);
+
+  const handleSubscribe = async (plan: 'starter' | 'growth') => {
+    try {
+      const response = await fetch('/api/stripe/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          plan,
+          successUrl: `${window.location.origin}/dashboard?subscription=success`,
+          cancelUrl: `${window.location.origin}/pricing?subscription=canceled`,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to create checkout session');
+      }
+
+      // Redirect to Stripe checkout
+      window.location.href = data.url;
+    } catch (error) {
+      console.error('Subscription error:', error);
+      alert('Something went wrong. Please try again.');
+    }
+  };
+
   const plans = [
     {
       name: "Starter",
-      price: 299,
+      price: 12,
       description: "Perfect for small teams testing automation",
       features: [
-        "5 active workflows",
-        "1,000 leads/month",
-        "Basic integrations",
-        "Email support",
-        "Standard analytics"
+        "Basic lead generation",
+        "WhatsApp integration",
+        "Meta integration",
+        "Reports dashboard",
+        "Leads dashboard",
+        "1 AI agent"
       ],
       popular: false,
+      planId: "starter",
     },
     {
       name: "Growth",
-      price: 599,
+      price: 19,
       description: "For teams scaling their lead generation",
       features: [
-        "20 active workflows",
-        "5,000 leads/month",
-        "Advanced integrations",
-        "Priority support",
-        "Advanced analytics",
-        "Custom workflows"
+        "Advanced lead generation",
+        "WhatsApp integration",
+        "Meta integration",
+        "LinkedIn integration",
+        "Email automation",
+        "Reports dashboard",
+        "Leads dashboard",
+        "5 AI agents",
+        "Priority support"
       ],
       popular: true,
+      planId: "growth",
     },
     {
       name: "Enterprise",
@@ -998,9 +1035,11 @@ export function Pricing() {
         "Dedicated manager",
         "24/7 support",
         "SLA guarantee",
-        "Custom integrations"
+        "Custom integrations",
+        "Unlimited users"
       ],
       popular: false,
+      planId: "enterprise",
     },
   ];
 
@@ -1043,6 +1082,21 @@ export function Pricing() {
           >
             Start free for 14 days. No credit card required. Scale as you grow.
           </motion.p>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="mt-6"
+          >
+            <button
+              onClick={() => setShowComparison(true)}
+              className="text-cyan-400 hover:text-cyan-300 font-semibold transition-colors"
+            >
+              Compare all plans →
+            </button>
+          </motion.div>
         </div>
 
         {/* Pricing Cards */}
@@ -1064,7 +1118,7 @@ export function Pricing() {
                   </div>
                 </div>
               )}
-
+              
               <div className={`relative h-full bg-slate-900/30 backdrop-blur-sm rounded-2xl p-8 border transition-all ${
                 plan.popular 
                   ? 'border-cyan-500/30 shadow-xl shadow-cyan-500/10' 
@@ -1078,58 +1132,66 @@ export function Pricing() {
                 <div className="relative">
                   {/* Header */}
                   <div className="mb-6">
-                    <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
+                  <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
                     <p className="text-sm text-slate-400">{plan.description}</p>
                   </div>
 
                   {/* Price */}
                   <div className="mb-8">
-                    {plan.price ? (
+                  {plan.price ? (
                       <div className="flex items-baseline gap-1">
                         <span className="text-slate-400 text-xl">$</span>
                         <span className="text-5xl font-bold text-white">
-                          <CountUp end={plan.price} duration={1.5} />
-                        </span>
+                        <CountUp end={plan.price} duration={1.5} />
+                      </span>
                         <span className="text-slate-400 text-lg">/mo</span>
-                      </div>
-                    ) : (
+                    </div>
+                  ) : (
                       <div className="text-4xl font-bold text-white">Custom</div>
-                    )}
-                  </div>
+                  )}
+                </div>
 
                   {/* Features */}
                   <ul className="space-y-4 mb-8">
-                    {plan.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
+                  {plan.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
                         <svg className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
-                        <span className="text-slate-300 text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                      <span className="text-slate-300 text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
 
                   {/* CTA Button */}
-                  <a 
-                    href="#cta" 
+                <button 
+                  onClick={() => {
+                    if (plan.planId === 'enterprise') {
+                      // Handle enterprise contact
+                      window.location.href = '#cta';
+                    } else {
+                      // Handle subscription
+                      handleSubscribe(plan.planId as 'starter' | 'growth');
+                    }
+                  }}
                     className={`block w-full text-center py-3 px-6 rounded-xl font-semibold transition-all ${
-                      plan.popular
+                    plan.popular
                         ? 'bg-gradient-to-r from-cyan-500 to-purple-500 text-white hover:from-cyan-600 hover:to-purple-600 shadow-lg hover:shadow-xl'
                         : 'bg-slate-800 text-white hover:bg-slate-700 border border-slate-700'
-                    }`}
-                  >
+                  }`}
+                >
                     {plan.price ? 'Start Free Trial' : 'Contact Sales'}
-                  </a>
-                </div>
+                </button>
               </div>
+            </div>
             </motion.div>
           ))}
         </div>
 
         {/* FAQ / Features Comparison */}
-        <motion.div
+              <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
           className="max-w-4xl mx-auto"
@@ -1150,14 +1212,14 @@ export function Pricing() {
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-4">
                   <div className="text-2xl flex-shrink-0">{item.icon}</div>
-                  <div>
+              <div>
                     <div className="font-semibold text-white mb-1">{item.title}</div>
                     <div className="text-sm text-slate-400">{item.desc}</div>
-                  </div>
-                </div>
+              </div>
+              </div>
               ))}
+              </div>
             </div>
-          </div>
         </motion.div>
 
         {/* Bottom CTA */}
@@ -1182,6 +1244,11 @@ export function Pricing() {
           </a>
         </motion.div>
       </div>
+      
+      {/* Plan Comparison Modal */}
+      {showComparison && (
+        <PlanComparison onClose={() => setShowComparison(false)} />
+      )}
     </section>
   );
 }
@@ -1517,26 +1584,26 @@ export function Team() {
                 <div className="relative mb-6">
                   <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-slate-800">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img 
-                      src={member.image} 
-                      alt={member.name}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      style={{
+                    style={{
                         objectPosition: member.role === 'COO' ? 'center 20%' : 'center top',
-                        transform: member.role === 'COO' ? 'scale(1.1) translateY(5px)' : 'scale(1.3) translateY(-10px)',
-                      }}
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        const parent = target.parentElement;
-                        if (parent) {
+                      transform: member.role === 'COO' ? 'scale(1.1) translateY(5px)' : 'scale(1.3) translateY(-10px)',
+                    }}
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      const parent = target.parentElement;
+                      if (parent) {
                           parent.innerHTML = `<div class="w-full h-full bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center"><span class="text-6xl">👤</span></div>`;
-                        }
-                      }}
-                    />
-                  </div>
+                      }
+                    }}
+                  />
                 </div>
+              </div>
 
                 {/* Info */}
                 <div className="text-center">
@@ -1544,18 +1611,18 @@ export function Team() {
                   <p className="text-slate-400 text-sm mb-4">{member.role}</p>
                   
                   {/* LinkedIn */}
-                  <a
-                    href={member.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
+              <a
+                href={member.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-slate-400 hover:text-cyan-400 transition-colors text-sm group/link"
-                  >
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                    </svg>
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
                     <span className="group-hover/link:underline">LinkedIn</span>
-                  </a>
-                </div>
+              </a>
+            </div>
               </div>
             </motion.div>
           ))}
@@ -1579,16 +1646,16 @@ export function Team() {
             <div>
               <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-2">
                 <CountUp end={50} duration={2} suffix="+" enableScrollSpy />
-              </div>
+            </div>
               <p className="text-sm text-slate-400">Clients Served</p>
             </div>
             <div>
               <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-2">
                 <CountUp end={3} duration={2} enableScrollSpy />
-              </div>
-              <p className="text-sm text-slate-400">Founders</p>
             </div>
+              <p className="text-sm text-slate-400">Founders</p>
           </div>
+        </div>
         </motion.div>
       </div>
     </section>
@@ -1687,9 +1754,9 @@ export function FinalCTA() {
         </div>
 
         {/* Form */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
@@ -1722,7 +1789,7 @@ export function FinalCTA() {
                       className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700/50 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500/50 transition-colors"
                       placeholder="John Doe"
                     />
-                  </div>
+        </div>
 
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
@@ -1797,8 +1864,8 @@ export function FinalCTA() {
                       <option value="1-month">Within a month</option>
                       <option value="exploring">Just exploring</option>
                     </select>
-                  </div>
-                </div>
+          </div>
+        </div>
 
                 <div>
                   <label htmlFor="biggestChallenge" className="block text-sm font-medium text-slate-300 mb-2">
@@ -1871,20 +1938,20 @@ export function FinalCTA() {
 
         {/* Trust Indicators */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-12 grid grid-cols-3 gap-6 text-center"
         >
           <div>
             <div className="text-2xl font-bold text-cyan-400 mb-1">30 min</div>
             <p className="text-sm text-slate-400">Free Consultation</p>
-          </div>
+        </div>
           <div>
             <div className="text-2xl font-bold text-purple-400 mb-1">24 hrs</div>
             <p className="text-sm text-slate-400">Response Time</p>
-          </div>
+      </div>
           <div>
             <div className="text-2xl font-bold text-pink-400 mb-1">No Cost</div>
             <p className="text-sm text-slate-400">To Get Started</p>

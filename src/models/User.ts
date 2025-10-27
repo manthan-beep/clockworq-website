@@ -15,6 +15,25 @@ export interface IUser extends Document {
     notifications: boolean;
     language: string;
   };
+  subscription?: {
+    status: 'active' | 'past_due' | 'canceled' | 'unpaid' | 'incomplete';
+    plan: 'starter' | 'growth' | 'enterprise';
+    stripeCustomerId: string;
+    stripeSubscriptionId: string;
+    currentPeriodEnd: Date;
+    cancelAtPeriodEnd: boolean;
+  };
+  planFeatures?: {
+    leadGeneration: boolean;
+    whatsappIntegration: boolean;
+    metaIntegration: boolean;
+    reportsDashboard: boolean;
+    leadsDashboard: boolean;
+    agentCount: number;
+    linkedinIntegration: boolean;
+    emailAutomation: boolean;
+    prioritySupport: boolean;
+  };
 }
 
 const UserSchema = new Schema<IUser>({
@@ -65,6 +84,67 @@ const UserSchema = new Schema<IUser>({
     language: {
       type: String,
       default: 'en',
+    },
+  },
+  subscription: {
+    status: {
+      type: String,
+      enum: ['active', 'past_due', 'canceled', 'unpaid', 'incomplete'],
+    },
+    plan: {
+      type: String,
+      enum: ['starter', 'growth', 'enterprise'],
+    },
+    stripeCustomerId: {
+      type: String,
+    },
+    stripeSubscriptionId: {
+      type: String,
+    },
+    currentPeriodEnd: {
+      type: Date,
+    },
+    cancelAtPeriodEnd: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  planFeatures: {
+    leadGeneration: {
+      type: Boolean,
+      default: false,
+    },
+    whatsappIntegration: {
+      type: Boolean,
+      default: false,
+    },
+    metaIntegration: {
+      type: Boolean,
+      default: false,
+    },
+    reportsDashboard: {
+      type: Boolean,
+      default: false,
+    },
+    leadsDashboard: {
+      type: Boolean,
+      default: false,
+    },
+    agentCount: {
+      type: Number,
+      default: 0,
+    },
+    linkedinIntegration: {
+      type: Boolean,
+      default: false,
+    },
+    emailAutomation: {
+      type: Boolean,
+      default: false,
+    },
+    prioritySupport: {
+      type: Boolean,
+      default: false,
     },
   },
 }, {

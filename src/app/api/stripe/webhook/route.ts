@@ -4,7 +4,7 @@ import connectDB from '@/lib/mongodb';
 import User from '@/models/User';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2024-12-18.acacia',
+  apiVersion: '2025-09-30.clover',
 });
 
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
@@ -67,17 +67,26 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
     return;
   }
 
-  const subscription = await stripe.subscriptions.retrieve(session.subscription as string);
+  const subscriptionId = typeof session.subscription === 'string' 
+    ? session.subscription 
+    : session.subscription?.id;
+  
+  if (!subscriptionId) {
+    console.error('Missing subscription ID in session');
+    return;
+  }
+
+  const subscription = await stripe.subscriptions.retrieve(subscriptionId) as any;
 
   await User.findByIdAndUpdate(userId, {
     $set: {
       subscription: {
         status: subscription.status,
         plan: plan,
-        stripeCustomerId: session.customer as string,
+        stripeCustomerId: typeof session.customer === 'string' ? session.customer : session.customer?.id || '',
         stripeSubscriptionId: subscription.id,
-        currentPeriodEnd: new Date(subscription.current_period_end * 1000),
-        cancelAtPeriodEnd: subscription.cancel_at_period_end,
+        currentPeriodEnd: subscription.current_period_end ? new Date(subscription.current_period_end * 1000) : new Date(),
+        cancelAtPeriodEnd: subscription.cancel_at_period_end || false,
       },
       planFeatures: getPlanFeatures(plan),
     }
@@ -95,11 +104,13 @@ async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {
     return;
   }
 
+  const sub = await stripe.subscriptions.retrieve(subscription.id) as any;
+
   await User.findByIdAndUpdate(userId, {
     $set: {
       'subscription.status': subscription.status,
-      'subscription.currentPeriodEnd': new Date(subscription.current_period_end * 1000),
-      'subscription.cancelAtPeriodEnd': subscription.cancel_at_period_end,
+      'subscription.currentPeriodEnd': sub.current_period_end ? new Date(sub.current_period_end * 1000) : new Date(),
+      'subscription.cancelAtPeriodEnd': sub.cancel_at_period_end || false,
     }
   });
 
@@ -128,7 +139,16 @@ async function handleSubscriptionDeleted(subscription: Stripe.Subscription) {
 }
 
 async function handlePaymentSucceeded(invoice: Stripe.Invoice) {
-  const subscription = await stripe.subscriptions.retrieve(invoice.subscription as string);
+  const invoiceData = invoice as any;
+  const subscriptionId = invoiceData.subscription as string | Stripe.Subscription;
+  
+  if (!subscriptionId) {
+    console.error('Missing subscription in invoice');
+    return;
+  }
+
+  const subId = typeof subscriptionId === 'string' ? subscriptionId : subscriptionId.id;
+  const subscription = await stripe.subscriptions.retrieve(subId) as any;
   const userId = subscription.metadata?.userId;
 
   if (!userId) {
@@ -139,7 +159,7 @@ async function handlePaymentSucceeded(invoice: Stripe.Invoice) {
   await User.findByIdAndUpdate(userId, {
     $set: {
       'subscription.status': 'active',
-      'subscription.currentPeriodEnd': new Date(subscription.current_period_end * 1000),
+      'subscription.currentPeriodEnd': subscription.current_period_end ? new Date(subscription.current_period_end * 1000) : new Date(),
     }
   });
 
@@ -147,7 +167,16 @@ async function handlePaymentSucceeded(invoice: Stripe.Invoice) {
 }
 
 async function handlePaymentFailed(invoice: Stripe.Invoice) {
-  const subscription = await stripe.subscriptions.retrieve(invoice.subscription as string);
+  const invoiceData = invoice as any;
+  const subscriptionId = invoiceData.subscription as string | Stripe.Subscription;
+  
+  if (!subscriptionId) {
+    console.error('Missing subscription in invoice');
+    return;
+  }
+
+  const subId = typeof subscriptionId === 'string' ? subscriptionId : subscriptionId.id;
+  const subscription = await stripe.subscriptions.retrieve(subId) as any;
   const userId = subscription.metadata?.userId;
 
   if (!userId) {

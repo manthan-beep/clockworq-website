@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
-import { motion } from 'framer-motion';
 
 export default function SubscriptionStatus() {
   const { user } = useAuth();

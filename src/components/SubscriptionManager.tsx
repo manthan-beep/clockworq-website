@@ -9,7 +9,7 @@ interface SubscriptionManagerProps {
 }
 
 export default function SubscriptionManager({ onClose }: SubscriptionManagerProps) {
-  const { user, updateUser } = useAuth();
+  const { user } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 

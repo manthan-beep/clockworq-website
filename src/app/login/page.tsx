@@ -111,7 +111,7 @@ export default function LoginPage() {
               onClick={() => setIsSignUp(!isSignUp)}
               className="text-teal-400 hover:text-teal-300 underline transition-colors"
             >
-              {isSignUp ? "Login in" : "Sign up"}
+              {isSignUp ? "Log in" : "Sign up"}
             </button>
           </div>
         </div>

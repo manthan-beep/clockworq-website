@@ -15,6 +15,25 @@ export interface User {
   };
   lastLogin?: string;
   createdAt: string;
+  subscription?: {
+    status: 'active' | 'past_due' | 'canceled' | 'unpaid' | 'incomplete';
+    plan: 'starter' | 'growth' | 'enterprise';
+    stripeCustomerId: string;
+    stripeSubscriptionId: string;
+    currentPeriodEnd: string;
+    cancelAtPeriodEnd: boolean;
+  };
+  planFeatures?: {
+    leadGeneration: boolean;
+    whatsappIntegration: boolean;
+    metaIntegration: boolean;
+    reportsDashboard: boolean;
+    leadsDashboard: boolean;
+    agentCount: number;
+    linkedinIntegration: boolean;
+    emailAutomation: boolean;
+    prioritySupport: boolean;
+  };
 }
 
 interface AuthContextType {
@@ -69,14 +88,16 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         const data = await response.json();
         setUser(data.user);
       } else {
-        // Token is invalid, remove it
+        // Token is invalid or expired, remove it
         localStorage.removeItem('auth_token');
         setToken(null);
+        setUser(null);
       }
     } catch (error) {
       console.error('Error fetching user data:', error);
       localStorage.removeItem('auth_token');
       setToken(null);
+      setUser(null);
     } finally {
       setIsLoading(false);
     }

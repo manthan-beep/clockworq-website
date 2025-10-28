@@ -39,9 +39,9 @@ const navItems = [
     href: "#pricing",
     dropdown: [
       { label: "Starter Plan", href: "#pricing", key: "price-starter" },
-      { label: "Professional", href: "#pricing", key: "price-professional" },
-      { label: "Enterprise", href: "#pricing", key: "price-enterprise" },
-      { label: "Custom Solutions", href: "#pricing", key: "price-custom" }
+      { label: "Growth Plan", href: "#pricing", key: "price-growth" },
+      { label: "Pro Plan", href: "#pricing", key: "price-pro" },
+      { label: "Compare Plans", href: "#pricing", key: "price-compare" }
     ]
   },
 ];

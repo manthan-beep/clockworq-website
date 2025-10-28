@@ -86,6 +86,7 @@ const UserSchema = new Schema<IUser>({
       default: 'en',
     },
   },
+  //new
   subscription: {
     status: {
       type: String,

@@ -15,25 +15,6 @@ export interface User {
   };
   lastLogin?: string;
   createdAt: string;
-  subscription?: {
-    status: 'active' | 'past_due' | 'canceled' | 'unpaid' | 'incomplete';
-    plan: 'starter' | 'growth' | 'enterprise';
-    stripeCustomerId: string;
-    stripeSubscriptionId: string;
-    currentPeriodEnd: string;
-    cancelAtPeriodEnd: boolean;
-  };
-  planFeatures?: {
-    leadGeneration: boolean;
-    whatsappIntegration: boolean;
-    metaIntegration: boolean;
-    reportsDashboard: boolean;
-    leadsDashboard: boolean;
-    agentCount: number;
-    linkedinIntegration: boolean;
-    emailAutomation: boolean;
-    prioritySupport: boolean;
-  };
 }
 
 interface AuthContextType {

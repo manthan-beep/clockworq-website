@@ -5,7 +5,6 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import SubscriptionStatus from "@/components/SubscriptionStatus";
 
 export default function Dashboard() {
   const { user, isLoading, logout } = useAuth();
@@ -50,48 +49,30 @@ export default function Dashboard() {
     { 
       id: 'leads', 
       label: 'Leads Generated', 
-      icon: '👥',
-      requiresFeature: 'leadsDashboard',
-      requiresSubscription: true
+      icon: '👥'
     },
     { 
       id: 'agents', 
       label: 'Agents', 
-      icon: '🤖',
-      requiresFeature: 'agentCount',
-      requiresSubscription: true
+      icon: '🤖'
     },
     { 
       id: 'messages', 
       label: 'Messages', 
-      icon: '💬',
-      requiresFeature: 'emailAutomation',
-      requiresSubscription: true
+      icon: '💬'
     },
     { 
       id: 'integrations', 
       label: 'Integrations', 
-      icon: '🔗',
-      requiresFeature: 'whatsappIntegration',
-      requiresSubscription: true
+      icon: '🔗'
     },
     { 
       id: 'reports', 
       label: 'Reports', 
-      icon: '📊',
-      requiresFeature: 'reportsDashboard',
-      requiresSubscription: true
+      icon: '📊'
     },
   ];
 
-  const isFeatureEnabled = (feature: string) => {
-    if (!user?.subscription || user.subscription.status !== 'active') {
-      return false;
-    }
-    return user.planFeatures?.[feature as keyof typeof user.planFeatures] || false;
-  };
-
-  const hasActiveSubscription = user?.subscription?.status === 'active';
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900 flex">
@@ -152,39 +133,23 @@ export default function Dashboard() {
         {/* Navigation */}
         <nav className="p-4 space-y-2 flex-1">
           {sidebarItems.map((item) => {
-            const isEnabled = item.requiresFeature ? isFeatureEnabled(item.requiresFeature) : true;
-            const isDisabled = !isEnabled || (item.requiresSubscription && !hasActiveSubscription);
-            
             return (
               <button
                 key={item.id}
-                onClick={() => !isDisabled && setActiveTab(item.id)}
-                disabled={isDisabled}
+                onClick={() => setActiveTab(item.id)}
                 className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-colors ${
-                  isDisabled
-                    ? 'text-gray-400 cursor-not-allowed opacity-50'
-                    : activeTab === item.id
+                  activeTab === item.id
                     ? 'bg-teal-50 text-teal-700 border border-teal-200'
                     : 'text-gray-700 hover:bg-gray-50'
                 }`}
-                title={isDisabled ? 'Upgrade your plan to access this feature' : ''}
               >
                 <span className="text-xl">{item.icon}</span>
                 <span className="font-medium">{item.label}</span>
-                {isDisabled && (
-                  <span className="ml-auto text-xs bg-gray-200 text-gray-500 px-2 py-1 rounded">
-                    🔒
-                  </span>
-                )}
               </button>
             );
           })}
         </nav>
 
-        {/* Subscription Status */}
-        <div className="p-4 border-t border-gray-200">
-          <SubscriptionStatus />
-        </div>
         </div>
 
       {/* Main Content */}
@@ -201,11 +166,6 @@ export default function Dashboard() {
               </p>
             </div>
             <div className="flex items-center gap-4">
-              {!hasActiveSubscription && (
-                <div className="bg-gradient-to-r from-teal-500 to-cyan-500 text-white px-4 py-2 rounded-lg text-sm font-medium">
-                  <span>Upgrade to unlock all features</span>
-                </div>
-              )}
               <div className="text-sm text-gray-500">
                 Last login: {user.lastLogin ? new Date(user.lastLogin).toLocaleDateString() : 'N/A'}
               </div>

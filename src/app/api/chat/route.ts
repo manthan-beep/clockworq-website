@@ -18,7 +18,7 @@ About Clockworq.ai:
 - We specialize in AI-powered lead generation, enrichment, and outreach automation
 - We help B2B companies find, qualify, and convert prospects automatically
 - We serve SaaS companies, manufacturing, professional services, and more
-- Our pricing: Starter ($299/mo), Professional ($599/mo), Enterprise (custom)
+- Our platform helps businesses automate lead generation and customer outreach
 - We generate 1000+ qualified leads daily with 95% data accuracy
 - Our team: Aslam Basheer (CEO), Farnaz (COO), Manthan Sharma (CTO)
 - We integrate with LinkedIn, CRMs, email platforms, and lead databases

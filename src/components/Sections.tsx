@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
-import PlanComparison from "./PlanComparison";
 
 export function TimeSection() {
   const workflowNodes = [
@@ -959,87 +958,62 @@ export function How() {
 }
 
 
+
 export function Pricing() {
-  const [showComparison, setShowComparison] = useState(false);
-
-  const handleSubscribe = async (plan: 'starter' | 'growth') => {
-    try {
-      const response = await fetch('/api/stripe/create-checkout-session', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          plan,
-          successUrl: `${window.location.origin}/dashboard?subscription=success`,
-          cancelUrl: `${window.location.origin}/pricing?subscription=canceled`,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to create checkout session');
-      }
-
-      // Redirect to Stripe checkout
-      window.location.href = data.url;
-    } catch (error) {
-      console.error('Subscription error:', error);
-      alert('Something went wrong. Please try again.');
-    }
-  };
-
   const plans = [
     {
       name: "Starter",
-      price: 12,
+      price: 0,
+      period: "14 days free trial",
       description: "Perfect for small teams testing automation",
       features: [
+        "1 AI agent",
+        "CRM capabilities", 
+        "WhatsApp automation",
         "Basic lead generation",
-        "WhatsApp integration",
-        "Meta integration",
-        "Reports dashboard",
-        "Leads dashboard",
-        "1 AI agent"
+        "Email integration",
+        "Basic reporting"
       ],
       popular: false,
       planId: "starter",
     },
     {
       name: "Growth",
-      price: 19,
+      price: 12,
+      period: "per user/month",
       description: "For teams scaling their lead generation",
       features: [
-        "Advanced lead generation",
-        "WhatsApp integration",
+        "5 AI agents",
+        "Advanced CRM capabilities",
+        "WhatsApp automation",
         "Meta integration",
         "LinkedIn integration",
         "Email automation",
-        "Reports dashboard",
-        "Leads dashboard",
-        "5 AI agents",
+        "Advanced reporting",
         "Priority support"
       ],
       popular: true,
       planId: "growth",
     },
     {
-      name: "Enterprise",
-      price: null,
-      description: "Custom solutions for high-volume needs",
+      name: "Pro",
+      price: 18,
+      period: "per user/month",
+      description: "For high-volume lead generation needs",
       features: [
-        "Unlimited workflows",
-        "Unlimited leads",
-        "White-label options",
-        "Dedicated manager",
-        "24/7 support",
-        "SLA guarantee",
+        "Unlimited AI agents",
+        "Full CRM capabilities",
+        "WhatsApp automation",
+        "Meta integration",
+        "LinkedIn integration",
+        "Email automation",
+        "Advanced reporting",
         "Custom integrations",
-        "Unlimited users"
+        "Dedicated support",
+        "API access"
       ],
       popular: false,
-      planId: "enterprise",
+      planId: "pro",
     },
   ];
 
@@ -1082,21 +1056,6 @@ export function Pricing() {
           >
             Start free for 14 days. No credit card required. Scale as you grow.
           </motion.p>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="mt-6"
-          >
-            <button
-              onClick={() => setShowComparison(true)}
-              className="text-cyan-400 hover:text-cyan-300 font-semibold transition-colors"
-            >
-              Compare all plans →
-            </button>
-          </motion.div>
         </div>
 
         {/* Pricing Cards */}
@@ -1132,66 +1091,71 @@ export function Pricing() {
                 <div className="relative">
                   {/* Header */}
                   <div className="mb-6">
-                  <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
+                    <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
                     <p className="text-sm text-slate-400">{plan.description}</p>
                   </div>
 
                   {/* Price */}
                   <div className="mb-8">
-                  {plan.price ? (
+                    {plan.price === 0 ? (
+                      <div className="text-center">
+                        <div className="text-5xl font-bold text-white mb-2">Free</div>
+                        <div className="text-slate-400 text-lg">{plan.period}</div>
+                      </div>
+                    ) : (
                       <div className="flex items-baseline gap-1">
                         <span className="text-slate-400 text-xl">$</span>
                         <span className="text-5xl font-bold text-white">
-                        <CountUp end={plan.price} duration={1.5} />
-                      </span>
-                        <span className="text-slate-400 text-lg">/mo</span>
-                    </div>
-                  ) : (
-                      <div className="text-4xl font-bold text-white">Custom</div>
-                  )}
-                </div>
+                          <CountUp end={plan.price} duration={1.5} />
+                        </span>
+                        <span className="text-slate-400 text-lg">/{plan.period}</span>
+                      </div>
+                    )}
+                  </div>
 
                   {/* Features */}
                   <ul className="space-y-4 mb-8">
-                  {plan.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
+                    {plan.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
                         <svg className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
-                      <span className="text-slate-300 text-sm">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                        <span className="text-slate-300 text-sm">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
 
                   {/* CTA Button */}
-                <button 
-                  onClick={() => {
-                    if (plan.planId === 'enterprise') {
-                      // Handle enterprise contact
-                      window.location.href = '#cta';
-                    } else {
-                      // Handle subscription
-                      handleSubscribe(plan.planId as 'starter' | 'growth');
-                    }
-                  }}
+                  <button 
+                    onClick={() => {
+                      if (plan.planId === 'starter') {
+                        // Handle free trial
+                        window.location.href = '/login';
+                      } else {
+                        // Handle paid plans - redirect to contact
+                        window.location.href = '#cta';
+                      }
+                    }}
                     className={`block w-full text-center py-3 px-6 rounded-xl font-semibold transition-all ${
-                    plan.popular
+                      plan.popular
                         ? 'bg-gradient-to-r from-cyan-500 to-purple-500 text-white hover:from-cyan-600 hover:to-purple-600 shadow-lg hover:shadow-xl'
+                        : plan.price === 0
+                        ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white hover:from-green-600 hover:to-emerald-600 shadow-lg hover:shadow-xl'
                         : 'bg-slate-800 text-white hover:bg-slate-700 border border-slate-700'
-                  }`}
-                >
-                    {plan.price ? 'Start Free Trial' : 'Contact Sales'}
-                </button>
+                    }`}
+                  >
+                    {plan.price === 0 ? 'Start Free Trial' : 'Contact Sales'}
+                  </button>
+                </div>
               </div>
-            </div>
             </motion.div>
           ))}
         </div>
 
         {/* FAQ / Features Comparison */}
-              <motion.div
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
           className="max-w-4xl mx-auto"
@@ -1212,14 +1176,14 @@ export function Pricing() {
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-4">
                   <div className="text-2xl flex-shrink-0">{item.icon}</div>
-              <div>
+                  <div>
                     <div className="font-semibold text-white mb-1">{item.title}</div>
                     <div className="text-sm text-slate-400">{item.desc}</div>
-              </div>
-              </div>
+                  </div>
+                </div>
               ))}
-              </div>
             </div>
+          </div>
         </motion.div>
 
         {/* Bottom CTA */}
@@ -1244,11 +1208,6 @@ export function Pricing() {
           </a>
         </motion.div>
       </div>
-      
-      {/* Plan Comparison Modal */}
-      {showComparison && (
-        <PlanComparison onClose={() => setShowComparison(false)} />
-      )}
     </section>
   );
 }

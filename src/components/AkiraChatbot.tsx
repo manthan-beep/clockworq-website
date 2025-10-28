@@ -225,7 +225,7 @@ export default function AkiraChatbot() {
                       </li>
                       <li className="flex items-center gap-2">
                         <span className="w-1.5 h-1.5 bg-teal-500 rounded-full"></span>
-                        Explaining pricing and plans
+                        Providing information about our services
                       </li>
                       <li className="flex items-center gap-2">
                         <span className="w-1.5 h-1.5 bg-teal-500 rounded-full"></span>

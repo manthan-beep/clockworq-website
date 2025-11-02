@@ -189,7 +189,18 @@ export default function Dashboard() {
 
 // Leads Generated Component
 function LeadsContent() {
-  const [leads, setLeads] = useState([
+  type Lead = {
+    id: number;
+    name: string;
+    company: string;
+    email: string;
+    status: "Hot" | "Warm" | "Cold";
+    score: number;
+    source: string;
+    date: string;
+  };
+
+  const [leads, setLeads] = useState<Lead[]>([
     { id: 1, name: "John Smith", company: "TechCorps", email: "john@techcorp.com", status: "Hot", score: 95, source: "LinkedIn", date: "2024-01-15" },
     { id: 2, name: "Sarah Johnson", company: "InnovateLab", email: "sarah@innovate.com", status: "Warm", score: 78, source: "Website", date: "2024-01-14" },
     { id: 3, name: "Mike Chen", company: "DataFlow", email: "mike@dataflow.com", status: "Cold", score: 45, source: "Email", date: "2024-01-13" },
@@ -197,17 +208,16 @@ function LeadsContent() {
     { id: 5, name: "David Wilson", company: "NextGen", email: "david@nextgen.com", status: "Warm", score: 67, source: "Referral", date: "2024-01-11" },
   ]);
 
-  const [editingLead, setEditingLead] = useState(null);
-  const [selectedLead, setSelectedLead] = useState(null);
+  const [editingLead, setEditingLead] = useState<Lead | null>(null);
+  const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
 
-  const handleEditLead = (lead) => {
+  const handleEditLead = (lead: Lead) => {
     setEditingLead({ ...lead });
   };
 
   const handleSaveLead = () => {
-    setLeads(leads.map(lead => 
-      lead.id === editingLead.id ? editingLead : lead
-    ));
+    if (!editingLead) return;
+    setLeads(leads.map((lead) => (lead.id === editingLead.id ? editingLead : lead)));
     setEditingLead(null);
   };
 
@@ -215,22 +225,25 @@ function LeadsContent() {
     setEditingLead(null);
   };
 
-  const handleLeadClick = (lead) => {
+  const handleLeadClick = (lead: Lead) => {
     setSelectedLead(lead);
   };
 
-  const handleDeleteLead = (leadId) => {
-    setLeads(leads.filter(lead => lead.id !== leadId));
+  const handleDeleteLead = (leadId: number) => {
+    setLeads(leads.filter((lead) => lead.id !== leadId));
     if (selectedLead && selectedLead.id === leadId) {
       setSelectedLead(null);
     }
   };
 
-  const handleInputChange = (field, value) => {
-    setEditingLead(prev => ({
-      ...prev,
-      [field]: value
-    }));
+  const handleInputChange = (field: keyof Lead, value: string | number) => {
+    setEditingLead((prev) => {
+      if (!prev) return prev;
+      return {
+        ...prev,
+        [field]: value as never,
+      };
+    });
   };
 
   return (

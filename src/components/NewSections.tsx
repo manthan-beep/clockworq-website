@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 
 // --- Value Props ---
@@ -143,7 +143,14 @@ export function HowItWorks() {
     );
 }
 
-function StepItem({ step, setActiveStep }: { step: any, setActiveStep: (id: number) => void }) {
+interface Step {
+    id: number;
+    title: string;
+    desc: string;
+    icon: React.ReactNode;
+}
+
+function StepItem({ step, setActiveStep }: { step: Step, setActiveStep: (id: number) => void }) {
     const ref = useRef(null);
     const isInView = useInView(ref, { margin: "-50% 0px -50% 0px" });
 
@@ -378,8 +385,8 @@ export function Pricing() {
                         <div
                             key={i}
                             className={`relative bg-surface rounded-2xl p-8 border flex flex-col transition-all duration-300 ${plan.popular
-                                    ? 'border-primary shadow-xl shadow-primary/5 scale-105 z-10'
-                                    : 'border-border hover:border-primary/20'
+                                ? 'border-primary shadow-xl shadow-primary/5 scale-105 z-10'
+                                : 'border-border hover:border-primary/20'
                                 }`}
                         >
                             {plan.popular && (
@@ -406,8 +413,8 @@ export function Pricing() {
                                 ))}
                             </ul>
                             <button className={`w-full py-4 rounded-xl font-semibold text-sm transition-all ${plan.popular
-                                    ? 'bg-primary text-white hover:bg-teal-900 shadow-lg shadow-primary/10'
-                                    : 'bg-background text-text-primary hover:bg-surface-highlight border border-border'
+                                ? 'bg-primary text-white hover:bg-teal-900 shadow-lg shadow-primary/10'
+                                : 'bg-background text-text-primary hover:bg-surface-highlight border border-border'
                                 }`}>
                                 {plan.price === 0 ? 'Get Started' : plan.price === 'Custom' ? 'Contact Sales' : 'Subscribe'}
                             </button>

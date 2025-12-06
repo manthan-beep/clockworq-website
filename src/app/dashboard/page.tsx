@@ -234,7 +234,7 @@ function LeadsContent() {
   const [editingLead, setEditingLead] = useState<Lead | null>(null);
   const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
 
-  const handleEditLead = (lead: any) => {
+  const handleEditLead = (lead: Lead) => {
     setEditingLead({ ...lead });
   };
 
@@ -250,23 +250,23 @@ function LeadsContent() {
     setEditingLead(null);
   };
 
-  const handleLeadClick = (lead: any) => {
+  const handleLeadClick = (lead: Lead) => {
     setSelectedLead(lead);
   };
 
-  const handleDeleteLead = (leadId: any) => {
+  const handleDeleteLead = (leadId: number) => {
     setLeads(leads.filter(lead => lead.id !== leadId));
     if (selectedLead && selectedLead.id === leadId) {
       setSelectedLead(null);
     }
   };
 
-  const handleInputChange = (field: any, value: any) => {
+  const handleInputChange = (field: keyof Lead, value: string | number) => {
     setEditingLead(prev => {
       if (!prev) return null;
       return {
         ...prev,
-        [field]: value
+        [field]: value as Lead[keyof Lead]
       };
     });
   };

@@ -6,51 +6,17 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "@/contexts/AuthContext";
 
 const navItems = [
-  { 
-    label: "Why", 
-    href: "#why",
-    dropdown: [
-      { label: "Problem We Solve", href: "#why", key: "why-problem" },
-      { label: "Our Approach", href: "#why", key: "why-approach" },
-      { label: "Success Stories", href: "#why", key: "why-stories" }
-    ]
-  },
-  { 
-    label: "How", 
-    href: "#how",
-    dropdown: [
-      { label: "Our Process", href: "#how", key: "how-process" },
-      { label: "Technology Stack", href: "#how", key: "how-tech" },
-      { label: "Integration", href: "#how", key: "how-integration" }
-    ]
-  },
-  { 
-    label: "Use cases", 
-    href: "#use-cases",
-    dropdown: [
-      { label: "Marketing Automation", href: "#use-cases", key: "use-marketing" },
-      { label: "Customer Support", href: "#use-cases", key: "use-support" },
-      { label: "Data Processing", href: "#use-cases", key: "use-data" },
-      { label: "Workflow Management", href: "#use-cases", key: "use-workflow" }
-    ]
-  },
-  { 
-    label: "Pricing", 
-    href: "#pricing",
-    dropdown: [
-      { label: "Starter Plan", href: "#pricing", key: "price-starter" },
-      { label: "Growth Plan", href: "#pricing", key: "price-growth" },
-      { label: "Pro Plan", href: "#pricing", key: "price-pro" },
-      { label: "Compare Plans", href: "#pricing", key: "price-compare" }
-    ]
-  },
+  { label: "Why Clockworq", href: "#why" },
+  { label: "How It Works", href: "#how" },
+  { label: "Features", href: "#features" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 export default function Navbar() {
   const { user, logout } = useAuth();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -66,134 +32,40 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed inset-x-0 top-0 z-[4000] transition-all duration-300 ${
-        scrolled 
-          ? "bg-slate-900/95 backdrop-blur-md border-b border-slate-700/50 shadow-lg shadow-black/20" 
-          : "bg-slate-900/90 backdrop-blur-sm border-b border-slate-700/30"
-      }`}
+      className={`fixed inset-x-0 top-0 z-[100] transition-all duration-300 ${scrolled
+        ? "bg-background/80 backdrop-blur-md border-b border-border"
+        : "bg-transparent"
+        }`}
     >
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex h-20 items-center justify-between">
-          {/* Logo with clockwork animation */}
-          <Link href="#" className="group flex items-center space-x-3">
-            <motion.div
-              whileHover={{ scale: 1.1, rotate: 360 }}
-              transition={{ duration: 0.6, ease: "easeInOut" }}
-              className="relative"
-            >
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                className="w-8 h-8"
-              >
-                <svg viewBox="0 0 100 100" className="w-full h-full text-slate-300 group-hover:text-white transition-colors">
-                  <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="2"/>
-                  <circle cx="50" cy="50" r="6" fill="currentColor"/>
-                  <path d="M50 15 L50 25 M50 75 L50 85 M15 50 L25 50 M75 50 L85 50" stroke="currentColor" strokeWidth="2"/>
-                  <path d="M30 30 L35 35 M65 30 L60 35 M30 70 L35 65 M65 70 L60 65" stroke="currentColor" strokeWidth="1.5"/>
-                </svg>
-              </motion.div>
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 w-8 h-8"
-              >
-                <svg viewBox="0 0 100 100" className="w-full h-full text-slate-400 group-hover:text-slate-300 transition-colors">
-                  <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" strokeWidth="1.5"/>
-                  <path d="M50 20 L50 30 M50 70 L50 80 M20 50 L30 50 M70 50 L80 50" stroke="currentColor" strokeWidth="1.5"/>
-                </svg>
-              </motion.div>
-            </motion.div>
-            <span className="text-xl font-black tracking-tight text-white group-hover:text-slate-300 transition-colors">
-              Clockworq.ai
+          {/* Logo */}
+          <Link href="/" className="group flex items-center space-x-2">
+            <div className="relative w-8 h-8 bg-black rounded-lg flex items-center justify-center text-[#38bdf8] font-bold text-xl shadow-sm border border-[#38bdf8]/20">
+              C
+            </div>
+            <span className="text-xl font-bold tracking-tight text-black">
+              clockworq.ai
             </span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden gap-8 md:flex">
             {navItems.map((item, index) => (
-              <div
+              <motion.a
                 key={item.href}
-                className="relative"
-                onMouseEnter={() => setActiveDropdown(item.label)}
-                onMouseLeave={() => setActiveDropdown(null)}
+                href={item.href}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="text-sm font-medium text-text-secondary hover:text-primary transition-colors duration-300"
               >
-                <motion.a
-                  href={item.href}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="group relative flex items-center text-sm font-medium text-slate-300 hover:text-white transition-colors duration-300"
-                >
-                  <span className="relative z-10">{item.label}</span>
-                  <motion.svg
-                    className="ml-1 h-4 w-4 text-slate-400 group-hover:text-slate-300 transition-colors"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    animate={{ rotate: activeDropdown === item.label ? 180 : 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </motion.svg>
-                  <motion.div
-                    className="absolute -bottom-1 left-0 h-0.5 bg-white origin-left"
-                    initial={{ scaleX: 0 }}
-                    whileHover={{ scaleX: 1 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                  />
-                  <motion.div
-                    className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-teal-400 to-cyan-300 origin-left"
-                    initial={{ scaleX: 0, opacity: 0 }}
-                    whileHover={{ scaleX: 1, opacity: 1 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                  />
-                </motion.a>
-
-                {/* Dropdown Menu */}
-                <AnimatePresence>
-                  {activeDropdown === item.label && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                      transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="absolute top-full left-0 mt-2 w-64 rounded-2xl bg-slate-800/95 backdrop-blur-md border border-slate-700/50 shadow-xl shadow-black/20 z-50"
-                    >
-                      <div className="p-2">
-                        {item.dropdown?.map((dropdownItem, dropdownIndex) => (
-                          <motion.a
-                            key={dropdownItem.key || dropdownItem.href}
-                            href={dropdownItem.href}
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.2, delay: dropdownIndex * 0.05 }}
-                            className="group relative flex items-center rounded-xl px-4 py-3 text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors duration-200"
-                          >
-                            <span className="relative z-10">{dropdownItem.label}</span>
-                            <motion.div
-                              className="absolute inset-0 rounded-xl bg-slate-700"
-                              initial={{ scaleX: 0 }}
-                              whileHover={{ scaleX: 1 }}
-                              transition={{ duration: 0.2, ease: "easeOut" }}
-                            />
-                            <motion.div
-                              className="absolute right-4 w-2 h-2 rounded-full bg-slate-500 group-hover:bg-teal-400"
-                              initial={{ scale: 0 }}
-                              whileHover={{ scale: 1 }}
-                              transition={{ duration: 0.2, ease: "easeOut" }}
-                            />
-                          </motion.a>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+                {item.label}
+              </motion.a>
             ))}
           </nav>
 
-          {/* User Menu or Login/Signup Buttons */}
+          {/* User Menu or Login Button */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -204,19 +76,14 @@ export default function Navbar() {
               <div className="relative">
                 <button
                   onClick={() => setUserMenuOpen(!userMenuOpen)}
-                  className="flex items-center space-x-3 px-4 py-2 rounded-xl hover:bg-slate-800/50 transition-colors duration-300"
+                  className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-surface-highlight transition-colors duration-200"
                 >
-                  <div className="w-8 h-8 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">
-                      {user.firstName?.[0] || user.email[0].toUpperCase()}
-                    </span>
+                  <div className="w-8 h-8 bg-surface-highlight text-text-primary rounded-full flex items-center justify-center font-bold border border-border">
+                    {user.firstName?.[0] || user.email[0].toUpperCase()}
                   </div>
-                  <span className="text-slate-300 text-sm font-medium">
+                  <span className="text-text-primary text-sm font-medium">
                     {user.firstName || user.email.split('@')[0]}
                   </span>
-                  <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </button>
 
                 <AnimatePresence>
@@ -225,18 +92,17 @@ export default function Navbar() {
                       initial={{ opacity: 0, y: 10, scale: 0.95 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                      transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="absolute top-full right-0 mt-2 w-64 rounded-2xl bg-slate-800/95 backdrop-blur-md border border-slate-700/50 shadow-xl shadow-black/20 z-50"
+                      className="absolute top-full right-0 mt-2 w-56 rounded-xl bg-surface border border-border shadow-xl z-50 overflow-hidden"
                     >
-                      <div className="p-4">
-                        <div className="mb-4 pb-4 border-b border-slate-700/50">
-                          <div className="text-sm text-slate-400">Signed in as</div>
-                          <div className="text-white font-medium">{user.email}</div>
+                      <div className="p-2">
+                        <div className="px-3 py-2 border-b border-border mb-1">
+                          <div className="text-xs text-text-secondary">Signed in as</div>
+                          <div className="text-sm font-medium text-text-primary truncate">{user.email}</div>
                         </div>
                         <Link
                           href="/dashboard"
                           onClick={() => setUserMenuOpen(false)}
-                          className="block w-full text-left px-4 py-3 text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white rounded-xl transition-colors duration-200 mb-2"
+                          className="block w-full text-left px-3 py-2 text-sm text-text-secondary hover:bg-surface-highlight hover:text-text-primary rounded-lg transition-colors"
                         >
                           Dashboard
                         </Link>
@@ -245,7 +111,7 @@ export default function Navbar() {
                             logout();
                             setUserMenuOpen(false);
                           }}
-                          className="w-full text-left px-4 py-3 text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white rounded-xl transition-colors duration-200"
+                          className="w-full text-left px-3 py-2 text-sm text-text-secondary hover:bg-red-50 hover:text-red-600 rounded-lg transition-colors"
                         >
                           Sign out
                         </button>
@@ -255,78 +121,28 @@ export default function Navbar() {
                 </AnimatePresence>
               </div>
             ) : (
-              <>
-                <a 
-                  href="/login" 
-                  className="group relative overflow-hidden rounded-2xl border border-slate-600 px-6 py-3 text-sm font-bold text-slate-300 hover:text-white hover:border-slate-400 transition-all duration-300"
-                >
-                  <span className="relative z-10">Login</span>
-                  <motion.div
-                    className="absolute inset-0 bg-slate-800/50"
-                    initial={{ scaleX: 0 }}
-                    whileHover={{ scaleX: 1 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                  />
-                </a>
-                <a 
-                  href="#cta" 
-                  className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-teal-500 to-cyan-500 px-6 py-3 text-sm font-bold text-white shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                  <span className="relative z-10">Get Started</span>
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-teal-600 to-cyan-600"
-                    initial={{ x: "-100%" }}
-                    whileHover={{ x: "0%" }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                  />
-                  <motion.div
-                    className="absolute inset-0 bg-white/10"
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </a>
-              </>
+              <a
+                href="https://app.clockworq.ai"
+                className="px-6 py-2.5 bg-primary text-white text-sm font-medium rounded-full shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+              >
+                Login
+              </a>
             )}
           </motion.div>
 
           {/* Mobile Menu Button */}
-          <motion.button
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            aria-label="Toggle menu"
-            className="group relative inline-flex items-center justify-center rounded-xl p-3 text-slate-300 hover:bg-slate-800 md:hidden transition-colors duration-300"
-            onClick={() => setOpen((v) => !v)}
+          <button
+            className="md:hidden p-2 text-text-primary"
+            onClick={() => setOpen(!open)}
           >
-            <motion.div
-              animate={{ rotate: open ? 180 : 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="relative w-6 h-6"
-            >
-              <motion.span
-                className="absolute top-1 left-0 w-6 h-0.5 bg-slate-300 group-hover:bg-white transition-colors"
-                animate={{ 
-                  rotate: open ? 45 : 0,
-                  y: open ? 0 : -6
-                }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-              />
-              <motion.span
-                className="absolute top-3 left-0 w-6 h-0.5 bg-slate-300 group-hover:bg-white transition-colors"
-                animate={{ opacity: open ? 0 : 1 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-              />
-              <motion.span
-                className="absolute top-5 left-0 w-6 h-0.5 bg-slate-300 group-hover:bg-white transition-colors"
-                animate={{ 
-                  rotate: open ? -45 : 0,
-                  y: open ? 0 : 6
-                }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-              />
-            </motion.div>
-          </motion.button>
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {open ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
         </div>
 
         {/* Mobile Menu */}
@@ -336,155 +152,50 @@ export default function Navbar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="border-t border-slate-700/50 px-4 py-4 md:hidden bg-slate-900/95 backdrop-blur-md"
+              className="md:hidden bg-surface border-t border-border overflow-hidden"
             >
-              <nav className="flex flex-col gap-2">
-                {navItems.map((item, index) => (
-                  <div key={item.href}>
-                    <motion.a
-                      href={item.href}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: index * 0.1 }}
-                      onClick={() => {
-                        if (item.dropdown) {
-                          setActiveDropdown(activeDropdown === item.label ? null : item.label);
-                        } else {
-                          setOpen(false);
-                        }
-                      }}
-                      className="group relative flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium text-slate-300 hover:bg-slate-800 transition-colors duration-300"
-                    >
-                      <span className="relative z-10">{item.label}</span>
-                      {item.dropdown && (
-                        <motion.svg
-                          className="h-4 w-4 text-slate-400"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          animate={{ rotate: activeDropdown === item.label ? 180 : 0 }}
-                          transition={{ duration: 0.3, ease: "easeInOut" }}
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </motion.svg>
-                      )}
-                      <motion.div
-                        className="absolute inset-0 rounded-xl bg-slate-800"
-                        initial={{ scaleX: 0 }}
-                        whileHover={{ scaleX: 1 }}
-                        transition={{ duration: 0.3, ease: "easeOut" }}
-                      />
-                    </motion.a>
-                    
-                    {/* Mobile Dropdown */}
-                    {item.dropdown && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ 
-                          height: activeDropdown === item.label ? "auto" : 0,
-                          opacity: activeDropdown === item.label ? 1 : 0
-                        }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="overflow-hidden"
-                      >
-                        <div className="ml-4 mt-2 space-y-1">
-                          {item.dropdown.map((dropdownItem, dropdownIndex) => (
-                            <motion.a
-                              key={dropdownItem.key || dropdownItem.href}
-                              href={dropdownItem.href}
-                              initial={{ opacity: 0, x: -10 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ duration: 0.2, delay: dropdownIndex * 0.05 }}
-                              onClick={() => setOpen(false)}
-                              className="group relative flex items-center rounded-lg px-3 py-2 text-xs font-medium text-slate-400 hover:bg-slate-700 hover:text-white transition-colors duration-200"
-                            >
-                              <span className="relative z-10">{dropdownItem.label}</span>
-                              <motion.div
-                                className="absolute inset-0 rounded-lg bg-slate-700"
-                                initial={{ scaleX: 0 }}
-                                whileHover={{ scaleX: 1 }}
-                                transition={{ duration: 0.2, ease: "easeOut" }}
-                              />
-                            </motion.a>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </div>
-                ))}
-                {user ? (
-                  <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: navItems.length * 0.1 }}
-                    className="mt-4 p-4 bg-slate-800/50 rounded-xl"
-                  >
-                    <div className="flex items-center space-x-3 mb-3">
-                      <div className="w-10 h-10 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full flex items-center justify-center">
-                        <span className="text-white font-bold text-sm">
-                          {user.firstName?.[0] || user.email[0].toUpperCase()}
-                        </span>
-                      </div>
-                      <div>
-                        <div className="text-white font-medium text-sm">
-                          {user.firstName || user.email.split('@')[0]}
-                        </div>
-                        <div className="text-slate-400 text-xs">{user.email}</div>
-                      </div>
-                    </div>
-                    <Link
-                      href="/dashboard"
-                      onClick={() => setOpen(false)}
-                      className="block w-full text-left px-4 py-3 text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white rounded-xl transition-colors duration-200 mb-2"
-                    >
-                      Dashboard
-                    </Link>
-                    <button
-                      onClick={() => {
-                        logout();
-                        setOpen(false);
-                      }}
-                      className="w-full text-left px-4 py-3 text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white rounded-xl transition-colors duration-200"
-                    >
-                      Sign out
-                    </button>
-                  </motion.div>
-                ) : (
-                  <motion.a
-                    href="/login"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: navItems.length * 0.1 }}
+              <div className="py-4 space-y-2">
+                {navItems.map((item) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
                     onClick={() => setOpen(false)}
-                    className="group relative overflow-hidden rounded-xl border border-slate-600 px-4 py-3 text-center text-sm font-bold text-slate-300 hover:text-white hover:border-slate-400 transition-all duration-300 mt-2"
+                    className="block px-4 py-2 text-base font-medium text-text-secondary hover:bg-surface-highlight hover:text-primary rounded-lg"
                   >
-                    <span className="relative z-10">Login</span>
-                    <motion.div
-                      className="absolute inset-0 bg-slate-800/50"
-                      initial={{ scaleX: 0 }}
-                      whileHover={{ scaleX: 1 }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
-                    />
-                  </motion.a>
-                )}
-                <motion.a
-                  href="#cta"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: (navItems.length + 1) * 0.1 }}
-                  onClick={() => setOpen(false)}
-                  className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 px-4 py-3 text-center text-sm font-bold text-white hover:from-teal-600 hover:to-cyan-600 transition-colors duration-300 mt-2"
-                >
-                  <span className="relative z-10">Get Started</span>
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-teal-600 to-cyan-600"
-                    initial={{ x: "-100%" }}
-                    whileHover={{ x: "0%" }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                  />
-                </motion.a>
-              </nav>
+                    {item.label}
+                  </a>
+                ))}
+                <div className="pt-4 mt-4 border-t border-border px-4 space-y-3">
+                  {user ? (
+                    <>
+                      <Link
+                        href="/dashboard"
+                        onClick={() => setOpen(false)}
+                        className="block w-full text-center px-4 py-2 bg-surface-highlight text-text-primary font-medium rounded-lg"
+                      >
+                        Dashboard
+                      </Link>
+                      <button
+                        onClick={() => {
+                          logout();
+                          setOpen(false);
+                        }}
+                        className="block w-full text-center px-4 py-2 text-text-secondary font-medium"
+                      >
+                        Sign out
+                      </button>
+                    </>
+                  ) : (
+                    <a
+                      href="https://app.clockworq.ai"
+                      onClick={() => setOpen(false)}
+                      className="block w-full text-center px-4 py-2 bg-primary text-white font-medium rounded-lg shadow-sm"
+                    >
+                      Login
+                    </a>
+                  )}
+                </div>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -492,4 +203,3 @@ export default function Navbar() {
     </motion.header>
   );
 }
-

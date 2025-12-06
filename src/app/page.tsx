@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
 import Hero from "@/components/Hero";
-import { TimeSection, Why, How, Pricing, FinalCTA } from "@/components/Sections";
+import { ValueProps, HowItWorks, Features, Pricing, FAQ } from "@/components/NewSections";
 import ScrollProgress from "@/components/ScrollProgress";
 
 export default function Home() {
@@ -21,8 +21,8 @@ export default function Home() {
   // Show loading while checking authentication
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="text-white text-xl">Loading...</div>
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-primary text-xl font-medium animate-pulse">Loading...</div>
       </div>
     );
   }
@@ -33,24 +33,25 @@ export default function Home() {
   }
 
   return (
-    <>
+    <main className="min-h-screen bg-background selection:bg-primary/10 selection:text-primary">
       <ScrollProgress />
       <Hero />
-      <section id="time" className="scroll-mt-24">
-        <TimeSection />
+      <ValueProps />
+      <HowItWorks />
+      <Features />
+      <Pricing />
+      <FAQ />
+
+      {/* Final CTA */}
+      <section id="cta" className="py-32 bg-primary text-white text-center">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-4xl md:text-5xl font-serif font-medium mb-8">Ready to automate your GTM?</h2>
+          <p className="text-xl text-primary-soft mb-12 font-light opacity-90">Join the waitlist and start turning leads into revenue on autopilot.</p>
+          <a href="https://app.clockworq.ai" className="inline-block px-10 py-5 bg-white text-primary font-bold text-lg rounded-full shadow-xl hover:bg-surface-highlight hover:scale-105 transition-all duration-300">
+            Get Started Free
+          </a>
+        </div>
       </section>
-      <section id="why" className="scroll-mt-24">
-        <Why />
-      </section>
-      <section id="how" className="scroll-mt-24">
-        <How />
-      </section>
-      <section id="pricing" className="scroll-mt-24">
-        <Pricing />
-      </section>
-      <section id="cta" className="scroll-mt-24">
-        <FinalCTA />
-      </section>
-    </>
+    </main>
   );
 }
